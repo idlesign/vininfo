@@ -87,7 +87,8 @@ Python
     vin.country  # France
     vin.manufacturer  # Renault
     vin.region  # Europe
-    vin.vis  # 36666155
+    vin.wmi  # VF1
+    vin.vds  # LM1B0H
     vin.vis  # 36666155
 
     annotated = vin.annotate()
