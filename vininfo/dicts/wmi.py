@@ -1,6 +1,8 @@
 # -*- encoding: utf-8 -*-
 from __future__ import unicode_literals
 
+from ..brands import Lada
+
 
 WMI = {
     'AAV': 'Volkswagen',
@@ -130,7 +132,7 @@ WMI = {
     'W0L': 'Opel/Vauxhall',
     'W0SV': 'Opel Special Vehicles',
     'XLR': 'DAF Trucks',
-    'XTA': 'AvtoVAZ',
+    'XTA': Lada('AvtoVAZ'),
     'YK1': 'Saab',
     'YS2': 'Scania, Södertälje',
     'YS3': 'Saab',

@@ -1,3 +1,4 @@
+# -*- encoding: utf-8 -*-
 from __future__ import unicode_literals
 
 from ..dicts import COACHWORK_HATCH, COACHWORK_SW, COACHWORK_SEDAN

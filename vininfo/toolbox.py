@@ -1,13 +1,13 @@
-#! -*- encoding: utf-8 -*-
+# -*- encoding: utf-8 -*-
 from __future__ import unicode_literals
 
 from datetime import datetime
 from itertools import cycle
 
-from .common import Annotatable
-from .details import DETAILS
+from .common import Annotatable, Brand
 from .dicts import COUNTRIES, WMI, REGIONS
 from .exceptions import ValidationError
+from .utils import string_types
 
 
 class Vin(Annotatable):
@@ -23,12 +23,12 @@ class Vin(Annotatable):
     def __init__(self, num):
         self.num = self.validate(num)
 
-        details = DETAILS.get(self.wmi)
+        details_extractor = self.brand.extractor
 
-        if details:
-            details = details(self)
+        if details_extractor:
+            details_extractor = details_extractor(self)
 
-        self.details = details
+        self.details = details_extractor
 
     def __str__(self):
         return self.num
@@ -89,14 +89,30 @@ class Vin(Annotatable):
         return self.num[:3]
 
     @property
-    def manufacturer(self):
+    def brand(self):
+        """Brand object.
+
+        :rtype: Brand|None
+        """
         wmi = self.wmi
 
-        name = WMI.get(wmi)
-        if not name:
-            name = WMI.get(wmi[:2])
+        brand = WMI.get(wmi)
 
-        return name
+        if not brand:
+            brand = WMI.get(wmi[:2])
+
+        if isinstance(brand, string_types):
+            brand = Brand(brand)
+
+        return brand
+
+    @property
+    def manufacturer(self):
+        """Manufacturer title.
+
+        :rtype: str|unicode
+        """
+        return self.brand.manufacturer
 
     @property
     def vds(self):

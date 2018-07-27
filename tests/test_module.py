@@ -34,6 +34,7 @@ def test_basic():
         ('Region', 'Europe'),
         ('Years', '2018, 1988'),
     ])
+    assert '%s' % vin.brand == 'Lada (AvtoVAZ)'
 
     details = vin.details
     assert details.model_code == 'GF'
@@ -65,7 +66,4 @@ def test_checksum():
     assert Vin('1M8GDM9AXKP042788').verify_checksum()
 
     # faked
-    assert Vin('11111111111111111').verify_checksum()
-
-    # faked
-    assert not Vin('11111111101111111').verify_checksum()
+    assert not Vin('1M8GDM9AyKP042788').verify_checksum()
