@@ -44,24 +44,12 @@ class AvtoVazDetails(VinDetails):
         return self._vin.vds[:2]
 
     @property
-    def model(self):
-        return self.MODELS.get(self.model_code)
-
-    @property
     def coachwork_code(self):
         return self._vin.vds[2]
 
     @property
-    def coachwork(self):
-        return self.COACHWORKS.get(self.coachwork_code)
-
-    @property
     def engine_code(self):
         return self._vin.vds[3]
-
-    @property
-    def engine(self):
-        return self.ENGINES.get(self.engine_code)
 
     @property
     def transmission_code(self):
@@ -74,10 +62,6 @@ class AvtoVazDetails(VinDetails):
     @property
     def plant_code(self):
         return self._vin.vis[1]
-
-    @property
-    def plant(self):
-        return self.PLANTS.get(self.plant_code)
 
     @property
     def serial(self):

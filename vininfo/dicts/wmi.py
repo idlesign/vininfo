@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 from __future__ import unicode_literals
 
-from ..brands import Lada
+from ..brands import Lada, Nissan
 
 
 WMI = {
@@ -18,7 +18,7 @@ WMI = {
     'JMB': 'Mitsubishi',
     'JK': 'Kawasaki',
     'JM': 'Mazda',
-    'JN': 'Nissan',
+    'JN': Nissan(),
     'JS': 'Suzuki',
     'JT': 'Toyota',
     'JY': 'Yamaha',
@@ -81,7 +81,7 @@ WMI = {
     'SFD': 'Alexander Dennis',
     'SHH': 'Honda',
     'SHS': 'Honda',
-    'SJN': 'Nissan',
+    'SJN': Nissan(),
     'TCC': 'Micro Compact Car AG (SMART 1998-1999)',
     'TMA': 'Hyundai',
     'TMB': 'Škoda',
@@ -164,7 +164,7 @@ WMI = {
     '1J': 'Jeep',
     '1L': 'Lincoln',
     '1M': 'Mercury',
-    '1N': 'Nissan',
+    '1N': Nissan(),
     '1VW': 'Volkswagen',
     '1YV': 'Mazda',
     '1ZV': 'Auto Alliance International',
@@ -186,7 +186,7 @@ WMI = {
     '3H': 'Honda',
     '3HM': 'Honda',
     '3KP': 'Kia',
-    '3N': 'Nissan',
+    '3N': Nissan(),
     '3VW': 'Volkswagen',
     '4F': 'Mazda',
     '4J': 'Mercedes-Benz',
@@ -198,7 +198,7 @@ WMI = {
     '5F': 'Honda',
     '5J6': 'Honda',
     '5L': 'Lincoln',
-    '5N1': 'Nissan',
+    '5N1': Nissan(),
     '5NM': 'Hyundai',
     '5NP': 'Hyundai',
     '5T': 'Toyota',
@@ -237,7 +237,7 @@ WMI = {
     '93X': 'Souza Ramos - Mitsubishi / Suzuki',
     '9BH': 'Hyundai Motor Company / Hyundai',
     '95P': 'CAOA / Hyundai',
-    '94D': 'Nissan',
+    '94D': Nissan(),
     '98R': 'Chery',
     '988': 'Jeep',
     '98M': 'BMW',
@@ -268,7 +268,7 @@ WMI = {
     'MC2': 'Volvo Eicher commercial vehicles limited.',
     'MHR': 'Honda',
     'MNB': 'Ford',
-    'MNT': 'Nissan',
+    'MNT': Nissan(),
     'MMB': 'Mitsubishi',
     'MMM': 'Chevrolet',
     'MMT': 'Mitsubishi',
@@ -297,7 +297,7 @@ WMI = {
     'VLU': 'Scania',
     'VNE': 'Irisbus',
     'VSE': 'Suzuki / Santana Motors',
-    'VSK': 'Nissan',
+    'VSK': Nissan(),
     'VSX': 'Opel',
     'VS6': 'Ford',
     'VS9': 'Carrocerias Ayats',
@@ -354,7 +354,7 @@ WMI = {
     '4UZ': 'Frt-Thomas Bus',
     '4V': 'Volvo',
     '6AB': 'MAN',
-    '6F4': 'Nissan Motor Company',
+    '6F4': Nissan('Nissan Motor Company'),
     '6F5': 'Kenworth',
     '6FP': 'Ford Motor Company',
     '6H8': 'General Motors-Holden',

@@ -9,3 +9,8 @@ class Lada(Brand):
 
     extractor = AvtoVazDetails
 
+
+class Nissan(Brand):
+
+    extractor = NissanDetails
+

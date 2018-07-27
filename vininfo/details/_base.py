@@ -15,8 +15,29 @@ class VinDetails(Annotatable):
         'serial': 'Serial',
     }
 
+    MODELS = {}
+    ENGINES = {}
+    COACHWORKS = {}
+    PLANTS = {}
+
     def __init__(self, vin):
         """
         :param Vin vin:
         """
         self._vin = vin
+
+    @property
+    def engine(self):
+        return self.ENGINES.get(self.engine_code)
+
+    @property
+    def model(self):
+        return self.MODELS.get(self.model_code)
+
+    @property
+    def coachwork(self):
+        return self.COACHWORKS.get(self.coachwork_code)
+
+    @property
+    def plant(self):
+        return self.PLANTS.get(self.plant_code)

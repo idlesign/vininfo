@@ -32,8 +32,8 @@ class Brand(object):
 
     extractor = None
 
-    def __init__(self, manufacturer):
-        self.manufacturer = manufacturer
+    def __init__(self, manufacturer=None):
+        self.manufacturer = manufacturer or self.title
 
     @property
     def title(self):
