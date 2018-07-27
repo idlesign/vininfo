@@ -1,3 +1,4 @@
+# -*- encoding: utf-8 -*-
 from __future__ import unicode_literals
 
 from ..common import Annotatable
@@ -7,7 +8,7 @@ class VinDetails(Annotatable):
     """Offers advanced (manufacturer specific) VIN data extraction ficilities."""
 
     annotate_titles = {
-        'coachwork': 'Coachwork',
+        'body': 'Body',
         'engine': 'Engine',
         'model': 'Model',
         'plant': 'Plant',
@@ -17,7 +18,7 @@ class VinDetails(Annotatable):
 
     MODELS = {}
     ENGINES = {}
-    COACHWORKS = {}
+    BODIES = {}
     PLANTS = {}
 
     def __init__(self, vin):
@@ -35,8 +36,8 @@ class VinDetails(Annotatable):
         return self.MODELS.get(self.model_code)
 
     @property
-    def coachwork(self):
-        return self.COACHWORKS.get(self.coachwork_code)
+    def body(self):
+        return self.BODIES.get(self.body_code)
 
     @property
     def plant(self):

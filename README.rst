@@ -63,7 +63,7 @@ CLI
     ; Years: 2018, 1988
     ;
     ; Details:
-    ; Coachwork: Station Wagon
+    ; Body: Station Wagon
     ; Engine: 21179
     ; Model: Vesta
     ; Plant: Izhevsk

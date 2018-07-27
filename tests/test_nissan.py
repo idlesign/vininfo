@@ -20,11 +20,12 @@ def test_nissan():
     details = vin.details
     assert details.model_code == 'J'
     assert details.model == ['Maxima']
-    assert details.coachwork_code == '1'
-    assert details.coachwork == ['4-Door Sedan', 'Standard Body Truck']
+    assert details.body_code == '1'
+    assert details.body == ['4-Door Sedan', 'Standard Body Truck']
     assert details.engine_code == 'N'
     assert details.engine == ['VH45DE']
     assert details.plant_code == 'T'
     assert details.plant == ['Tochigi', 'Oppama']
+    assert details.serial == '000001'
 
     assert vin.verify_checksum()

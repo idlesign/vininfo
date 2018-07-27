@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 from __future__ import unicode_literals
 
-from ..dicts import COACHWORK_HATCH, COACHWORK_SW, COACHWORK_SEDAN
+from ..dicts import BODY_HATCH, BODY_SW, BODY_SEDAN
 
 from ._base import VinDetails
 
@@ -22,7 +22,7 @@ class NissanDetails(VinDetails):
         'Z': ['300Z', '350Z', 'Murano'],
     }
 
-    COACHWORKS = {
+    BODIES = {
         '1': ['4-Door Sedan', 'Standard Body Truck'],
         '4': ['2-Door Coupe'],
         '5': ['4-Door Wagon'],
@@ -60,7 +60,7 @@ class NissanDetails(VinDetails):
         return self._vin.vds[1]
 
     @property
-    def coachwork_code(self):
+    def body_code(self):
         return self._vin.vds[3]
 
     @property

@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 from __future__ import unicode_literals
 
-from ..dicts import COACHWORK_HATCH, COACHWORK_SW, COACHWORK_SEDAN
+from ..dicts import BODY_HATCH, BODY_SW, BODY_SEDAN
 
 from ._base import VinDetails
 
@@ -14,10 +14,10 @@ class AvtoVazDetails(VinDetails):
         'GF': 'Vesta',
     }
 
-    COACHWORKS = {
-        'B': COACHWORK_HATCH,
-        'K': COACHWORK_SW,
-        'L': COACHWORK_SEDAN,
+    BODIES = {
+        'B': BODY_HATCH,
+        'K': BODY_SW,
+        'L': BODY_SEDAN,
     }
 
     ENGINES = {
@@ -44,7 +44,7 @@ class AvtoVazDetails(VinDetails):
         return self._vin.vds[:2]
 
     @property
-    def coachwork_code(self):
+    def body_code(self):
         return self._vin.vds[2]
 
     @property
