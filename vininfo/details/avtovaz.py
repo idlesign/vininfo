@@ -1,9 +1,8 @@
 # -*- encoding: utf-8 -*-
 from __future__ import unicode_literals
 
-from ..dicts import BODY_HATCH, BODY_SW, BODY_SEDAN
-
 from ._base import VinDetails
+from ..dicts.bodies import *
 
 
 class AvtoVazDetails(VinDetails):
@@ -15,9 +14,9 @@ class AvtoVazDetails(VinDetails):
     }
 
     BODIES = {
-        'B': BODY_HATCH,
-        'K': BODY_SW,
-        'L': BODY_SEDAN,
+        'B': BODY_HATCH_5,
+        'K': BODY_SW_5,
+        'L': BODY_SEDAN_4,
     }
 
     ENGINES = {

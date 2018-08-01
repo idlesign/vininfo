@@ -21,7 +21,7 @@ def test_nissan():
     assert details.model_code == 'J'
     assert details.model == ['Maxima']
     assert details.body_code == '1'
-    assert details.body == ['4-Door Sedan', 'Standard Body Truck']
+    assert details.body == ['Sedan 4-Door', 'Standard Body Truck']
     assert details.engine_code == 'N'
     assert details.engine == ['VH45DE']
     assert details.plant_code == 'T'

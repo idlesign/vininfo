@@ -21,7 +21,7 @@ def test_renault():
     assert details.model_code == 'S'
     assert details.model == ['Logan', 'Sandero', 'Duster', 'Dokker', 'Lodgy']
     assert details.body_code == '4'
-    assert details.body == '4-Door Sedan'
+    assert details.body == 'Sedan 4-Door'
     assert details.plant_code == 'P'
     assert details.transmission_code == '4'
     assert details.transmission == 'Manual, 5-Gears'

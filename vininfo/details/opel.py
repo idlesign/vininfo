@@ -2,6 +2,7 @@
 from __future__ import unicode_literals
 
 from ._base import VinDetails
+from ..dicts.bodies import *
 
 
 class OpelDetails(VinDetails):
@@ -21,17 +22,17 @@ class OpelDetails(VinDetails):
     }
 
     BODIES = {
-        '2': '3-Door Hatchback',
-        '3': '2-Door Coupe',
-        '5': '4-Door Sedan',
-        '6': '5-Door Hatchback',
-        '7': '3-Door Crossover',
-        '8': '5-Door Wagon',
-        '9': '5-Door Minivan',
-        'B': 'Minibus',
-        'C': 'Van',
-        'J': 'Van',
-        'X': '3-Door Station Wagon',
+        '2': BODY_HATCH_3,
+        '3': BODY_COUPE_2,
+        '5': BODY_SEDAN_4,
+        '6': BODY_HATCH_5,
+        '7': BODY_CROSS_3,
+        '8': BODY_SW_5,
+        '9': BODY_MINIVAN_5,
+        'B': BODY_MINIBUS,
+        'C': BODY_VAN,
+        'J': BODY_VAN,
+        'X': BODY_SW_3,
     }
 
     PLANTS = {

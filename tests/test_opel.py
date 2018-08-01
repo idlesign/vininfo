@@ -21,7 +21,7 @@ def test_opel():
     assert details.model_code == 'P'
     assert details.model == ['Astra J', 'Zafira C']
     assert details.body_code == '6'
-    assert details.body == '5-Door Hatchback'
+    assert details.body == 'Hatchback 5-Door'
     assert details.engine_code == 'B'
     assert details.engine == 'A14XER100HP'
     assert details.plant_code == 'C'

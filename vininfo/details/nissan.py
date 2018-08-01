@@ -1,9 +1,8 @@
 # -*- encoding: utf-8 -*-
 from __future__ import unicode_literals
 
-from ..dicts import BODY_HATCH, BODY_SW, BODY_SEDAN
-
 from ._base import VinDetails
+from ..dicts.bodies import *
 
 
 class NissanDetails(VinDetails):
@@ -23,12 +22,12 @@ class NissanDetails(VinDetails):
     }
 
     BODIES = {
-        '1': ['4-Door Sedan', 'Standard Body Truck'],
-        '4': ['2-Door Coupe'],
-        '5': ['4-Door Wagon'],
-        '6': ['2-Door Convertible', 'Fastback', 'King Cab Truck'],
+        '1': [BODY_SEDAN_4, 'Standard Body Truck'],
+        '4': BODY_COUPE_2,
+        '5': BODY_SW_5,
+        '6': [BODY_CABRI_2, 'Fastback', 'King Cab Truck'],
         '7': ['Crew Cab Truck'],
-        '8': ['8-Door Wagon'],
+        '8': BODY_SW_8,
     }
 
     ENGINES = {

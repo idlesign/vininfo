@@ -2,6 +2,7 @@
 from __future__ import unicode_literals
 
 from ._base import VinDetails
+from ..dicts.bodies import *
 
 
 class RenaultDetails(VinDetails):
@@ -31,28 +32,28 @@ class RenaultDetails(VinDetails):
     }
 
     BODIES = {
-        '2': '2-Door Sedan',
-        '3': '3-Door Hatchback',
-        '4': '4-Door Sedan',
-        '5': '5-Door Hatchback',
-        '6': '5-Door Station Wagon',
-        '7': '2-Door Cabriolet',
-        '8': '2-Door Coupe',
-        'A': '3-Door Station Wagon',
-        'B': '5-Door Hatchback',
-        'C': '3-Door Hatchback',
-        'D': '2-Door Coupe',
-        'E': '2-Door Cabriolet',
-        'F': 'Van',
-        'G': '3-Door Minivan',
-        'J': '5-Door Minivan',
-        'H': '2-Door Pickup',
-        'K': '3-Door Station Wagon',
-        'L': '4-Door Sedan',
-        'M': '2-Door Sedan',
-        'N': '5-Door Minivan',
-        'S': '5-Door Station Wagon',
-        'U': '2-Door Pickup',
+        '2': BODY_SEDAN_2,
+        '3': BODY_HATCH_3,
+        '4': BODY_SEDAN_4,
+        '5': BODY_HATCH_5,
+        '6': BODY_SW_5,
+        '7': BODY_CABRI_2,
+        '8': BODY_COUPE_2,
+        'A': BODY_SW_3,
+        'B': BODY_HATCH_5,
+        'C': BODY_HATCH_3,
+        'D': BODY_COUPE_2,
+        'E': BODY_CABRI_2,
+        'F': BODY_VAN,
+        'G': BODY_MINIVAN_3,
+        'J': BODY_MINIVAN_5,
+        'H': BODY_PICKUP_2,
+        'K': BODY_SW_3,
+        'L': BODY_SEDAN_4,
+        'M': BODY_SEDAN_2,
+        'N': BODY_MINIVAN_5,
+        'S': BODY_SW_5,
+        'U': BODY_PICKUP_2,
     }
 
     TRANSMISSION = {
