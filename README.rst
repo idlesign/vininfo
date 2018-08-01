@@ -63,7 +63,7 @@ CLI
     ; Years: 2018, 1988
     ;
     ; Details:
-    ; Body: Station Wagon
+    ; Body: Station Wagon, 5-Door
     ; Engine: 21179
     ; Model: Vesta
     ; Plant: Izhevsk
