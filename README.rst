@@ -30,6 +30,12 @@ Description
 * Gives basic and detailed info (is available) about VIN.
 * Allows VIN checksum verification.
 
+Additional info available for many vehicles from:
+* AvtoVAZ
+* Nissan
+* Opel
+* Renault
+
 
 Requirements
 ------------
