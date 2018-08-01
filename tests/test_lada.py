@@ -29,7 +29,7 @@ def test_lada():
     assert details.model.code == 'F'
     assert details.model.name == 'Vesta'
     assert details.body.code == 'K'
-    assert details.body.name == 'Station Wagon 5-Door'
+    assert details.body.name == 'Station Wagon, 5-Door'
     assert details.engine.code == '3'
     assert details.engine.name == '21179'
     assert details.transmission.code == '3'
@@ -37,7 +37,7 @@ def test_lada():
     assert details.plant.code == 'Y'
     assert details.plant.name == 'Izhevsk'
     assert details.annotate() == OrderedDict([
-        ('Body', 'Station Wagon 5-Door'),
+        ('Body', 'Station Wagon, 5-Door'),
         ('Engine', '21179'),
         ('Model', 'Vesta'),
         ('Plant', 'Izhevsk'),
