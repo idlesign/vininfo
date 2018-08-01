@@ -14,3 +14,12 @@ class Nissan(Brand):
 
     extractor = NissanDetails
 
+
+class Opel(Brand):
+
+    extractor = OpelDetails
+
+
+class Renault(Brand):
+
+    extractor = RenaultDetails

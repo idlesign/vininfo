@@ -56,10 +56,6 @@ class AvtoVazDetails(VinDetails):
         return self._vin.vds[4]
 
     @property
-    def transmission(self):
-        return self.TRANSMISSION.get(self.engine_code)
-
-    @property
     def plant_code(self):
         return self._vin.vis[1]
 

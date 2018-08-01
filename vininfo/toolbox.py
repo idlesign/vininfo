@@ -42,8 +42,9 @@ class Vin(Annotatable):
         """
         num = num.strip().upper()
 
-        if len(num) != 17:
-            raise ValidationError('VIN number requires 17 chars')
+        num_len = len(num)
+        if num_len != 17:
+            raise ValidationError('VIN number requires 17 chars (%s given)' % num_len)
 
         illegal = {'I', 'O', 'Q'}
 

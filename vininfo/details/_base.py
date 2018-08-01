@@ -20,6 +20,7 @@ class VinDetails(Annotatable):
     ENGINES = {}
     BODIES = {}
     PLANTS = {}
+    TRANSMISSION = {}
 
     def __init__(self, vin):
         """
@@ -42,3 +43,7 @@ class VinDetails(Annotatable):
     @property
     def plant(self):
         return self.PLANTS.get(self.plant_code)
+
+    @property
+    def transmission(self):
+        return self.TRANSMISSION.get(self.transmission_code)
