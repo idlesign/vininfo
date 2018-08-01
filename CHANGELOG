@@ -2,8 +2,8 @@ vininfo changelog
 =================
 
 
-Unreleased
-----------
+v0.3.0
+------
 + Added basic info for Opel and Renault.
 + Details extractors definitions simplified.
 
