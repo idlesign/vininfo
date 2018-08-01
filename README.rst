@@ -31,6 +31,7 @@ Description
 * Allows VIN checksum verification.
 
 Additional info available for many vehicles from:
+
 * AvtoVAZ
 * Nissan
 * Opel
