@@ -26,16 +26,16 @@ def test_lada():
     assert '%s' % vin.brand == 'Lada (AvtoVAZ)'
 
     details = vin.details
-    assert details.model_code == 'GF'
-    assert details.model == 'Vesta'
-    assert details.body_code == 'K'
-    assert details.body == 'Station Wagon 5-Door'
-    assert details.engine_code == '3'
-    assert details.engine == '21179'
-    assert details.transmission_code == '3'
-    assert details.transmission == 'Manual Renault'
-    assert details.plant_code == 'Y'
-    assert details.plant == 'Izhevsk'
+    assert details.model.code == 'F'
+    assert details.model.name == 'Vesta'
+    assert details.body.code == 'K'
+    assert details.body.name == 'Station Wagon 5-Door'
+    assert details.engine.code == '3'
+    assert details.engine.name == '21179'
+    assert details.transmission.code == '3'
+    assert details.transmission.name == 'Manual Renault'
+    assert details.plant.code == 'Y'
+    assert details.plant.name == 'Izhevsk'
     assert details.annotate() == OrderedDict([
         ('Body', 'Station Wagon 5-Door'),
         ('Engine', '21179'),

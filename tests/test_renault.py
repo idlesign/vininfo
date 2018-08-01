@@ -18,12 +18,12 @@ def test_renault():
     assert '%s' % vin.brand == 'Renault (Renault)'
 
     details = vin.details
-    assert details.model_code == 'S'
-    assert details.model == ['Logan', 'Sandero', 'Duster', 'Dokker', 'Lodgy']
-    assert details.body_code == '4'
-    assert details.body == 'Sedan 4-Door'
-    assert details.plant_code == 'P'
-    assert details.transmission_code == '4'
-    assert details.transmission == 'Manual, 5-Gears'
-    assert details.plant == 'Mexico'
-    assert details.serial == '1234567'
+    assert details.model.code == 'S'
+    assert details.model.name == ['Logan', 'Sandero', 'Duster', 'Dokker', 'Lodgy']
+    assert details.body.code == '4'
+    assert details.body.name == 'Sedan 4-Door'
+    assert details.plant.code == 'P'
+    assert details.plant.name == 'Mexico'
+    assert details.transmission.code == '4'
+    assert details.transmission.name == 'Manual, 5-Gears'
+    assert details.serial.code == '1234567'

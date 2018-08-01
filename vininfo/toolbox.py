@@ -10,6 +10,10 @@ from .exceptions import ValidationError
 from .utils import string_types
 
 
+if False:  # pragma: nocover
+    from .details._base import VinDetails
+
+
 class Vin(Annotatable):
     """Offers basic VIN data extraction ficilities."""
 
@@ -28,7 +32,7 @@ class Vin(Annotatable):
         if details_extractor:
             details_extractor = details_extractor(self)
 
-        self.details = details_extractor
+        self.details = details_extractor  # type: VinDetails
 
     def __str__(self):
         return self.num

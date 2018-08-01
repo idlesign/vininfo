@@ -3,6 +3,55 @@ from __future__ import unicode_literals
 
 from ..common import Annotatable
 
+if False:  # pragma: nocover
+    from ..toolbox import Vin
+
+
+class DetailWrapper(object):
+
+    __slots__ = ['code', 'name']
+
+    def __init__(self, details, detail):
+        """
+        :param VinDetails details:
+        :param Detail detail: 
+        """
+        vin = details._vin
+        attr_name, attr_idx = detail.source
+        code_source = getattr(vin, attr_name)
+
+        code = code_source[attr_idx]
+
+        defs = detail.defs
+
+        if callable(defs):
+            defs = defs(details)
+
+        self.code = code
+        self.name = defs.get(code)
+
+    def __str__(self):
+        return self.name or self.code
+
+
+class Detail(object):
+    """Vin detail descriptor."""
+
+    __slots__ = ['source', 'defs']
+
+    def __init__(self, code_source=None, definitions=None):
+        self.source = code_source
+        self.defs = definitions or {}
+
+    def __get__(self, instance, owner):
+        """
+        :param VinDetails instance:
+        :param owner:
+        :rtype: DetailWrapper
+        """
+
+        return DetailWrapper(instance, self)
+
 
 class VinDetails(Annotatable):
     """Offers advanced (manufacturer specific) VIN data extraction ficilities."""
@@ -16,34 +65,16 @@ class VinDetails(Annotatable):
         'serial': 'Serial',
     }
 
-    MODELS = {}
-    ENGINES = {}
-    BODIES = {}
-    PLANTS = {}
-    TRANSMISSION = {}
-
     def __init__(self, vin):
         """
         :param Vin vin:
         """
         self._vin = vin
+        # self._cached = {}
 
-    @property
-    def engine(self):
-        return self.ENGINES.get(self.engine_code)
-
-    @property
-    def model(self):
-        return self.MODELS.get(self.model_code)
-
-    @property
-    def body(self):
-        return self.BODIES.get(self.body_code)
-
-    @property
-    def plant(self):
-        return self.PLANTS.get(self.plant_code)
-
-    @property
-    def transmission(self):
-        return self.TRANSMISSION.get(self.transmission_code)
+    body = Detail()
+    engine = Detail()
+    model = Detail()
+    plant = Detail()
+    transmission = Detail()
+    serial = Detail()

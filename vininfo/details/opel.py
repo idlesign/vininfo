@@ -1,14 +1,60 @@
 # -*- encoding: utf-8 -*-
 from __future__ import unicode_literals
 
-from ._base import VinDetails
+from ._base import VinDetails, Detail
 from ..dicts.bodies import *
+
+
+def get_engine(details):
+
+    candidates = {
+        'P': {
+            '1': 'A18XER140HP',
+            'B': 'A14XER100HP',
+            'C': 'A14NET140HP',
+            'D': 'A16XER115HP',
+            'J': 'A16LET180HP',
+            'N': 'A20DTH165HP',
+            'U': 'A14NEL120HP',
+        },
+        'W': {
+            'N': 'A20DTH160HP',
+            'C': 'A14NET140HP',
+        },
+        'G': {
+            'A': 'A16XER115HP',
+            'B': 'A16LET180HP',
+            'C': 'A18XER140HP',
+            'D': 'A20NHT220HP',
+            'E': 'A20NHT250HP',
+            'F': 'A28NET260HP',
+            'G': 'A28NER325HP',
+            'M': 'A20DTH160HP',
+            'N': 'A20DTR195HP',
+            'P': 'A14NFT140HP',
+            'X': 'A20NHT250HP',
+        },
+        'V': {
+            '1': 'Y13D70HP',
+            '2': 'Z14XEP100HP',
+        },
+        'S': {
+            'C': 'Z14XEP100HP',
+            'D': 'A14NEL120HP',
+            'E': 'A14NET140HP',
+        },
+        'J': {
+            '8': 'A14NET140HP',
+        },
+    }
+
+    return candidates.get(details.model.code, {})
 
 
 class OpelDetails(VinDetails):
     """Opel VIN details extractor."""
 
-    MODELS = {
+    model = Detail(('vds', 0), {
         'F': 'Agila',
         'G': 'Insignia',
         'J': 'Mokka',
@@ -19,9 +65,9 @@ class OpelDetails(VinDetails):
         'S': 'Meriva',
         'V': 'Combo II',
         'W': 'Cascada',
-    }
+    })
 
-    BODIES = {
+    body = Detail(('vds', 2), {
         '2': BODY_HATCH_3,
         '3': BODY_COUPE_2,
         '5': BODY_SEDAN_4,
@@ -33,9 +79,11 @@ class OpelDetails(VinDetails):
         'C': BODY_VAN,
         'J': BODY_VAN,
         'X': BODY_SW_3,
-    }
+    })
 
-    PLANTS = {
+    engine = Detail(('vds', 4), get_engine)
+
+    plant = Detail(('vis', 1), {
         '1': 'Russelsheim',
         '2': 'Bochum',
         '3': 'Azambuja',
@@ -62,69 +110,6 @@ class OpelDetails(VinDetails):
         'V': 'Luton',
         'X': 'Zaporozhia',
         'Z': 'Izmir',
-    }
+    })
 
-    @property
-    def model_code(self):
-        return self._vin.vds[0]
-
-    @property
-    def body_code(self):
-        return self._vin.vds[2]
-
-    @property
-    def engine_code(self):
-        return self._vin.vds[4]
-
-    @property
-    def engine(self):
-        candidates = {
-            'P': {
-                '1': 'A18XER140HP',
-                'B': 'A14XER100HP',
-                'C': 'A14NET140HP',
-                'D': 'A16XER115HP',
-                'J': 'A16LET180HP',
-                'N': 'A20DTH165HP',
-                'U': 'A14NEL120HP',
-            },
-            'W': {
-                'N': 'A20DTH160HP',
-                'C': 'A14NET140HP',
-            },
-            'G': {
-                'A': 'A16XER115HP',
-                'B': 'A16LET180HP',
-                'C': 'A18XER140HP',
-                'D': 'A20NHT220HP',
-                'E': 'A20NHT250HP',
-                'F': 'A28NET260HP',
-                'G': 'A28NER325HP',
-                'M': 'A20DTH160HP',
-                'N': 'A20DTR195HP',
-                'P': 'A14NFT140HP',
-                'X': 'A20NHT250HP',
-            },
-            'V': {
-                '1': 'Y13D70HP',
-                '2': 'Z14XEP100HP',
-            },
-            'S': {
-                'C': 'Z14XEP100HP',
-                'D': 'A14NEL120HP',
-                'E': 'A14NET140HP',
-            },
-            'J': {
-                '8': 'A14NET140HP',
-            },
-        }
-        model_engines = candidates.get(self.model_code, {})
-        return model_engines.get(self.engine_code)
-
-    @property
-    def plant_code(self):
-        return self._vin.vis[1]
-
-    @property
-    def serial(self):
-        return self._vin.vis[2:]
+    serial = Detail(('vis', slice(2, None)))

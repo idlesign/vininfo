@@ -1,14 +1,14 @@
 # -*- encoding: utf-8 -*-
 from __future__ import unicode_literals
 
-from ._base import VinDetails
+from ._base import VinDetails, Detail
 from ..dicts.bodies import *
 
 
 class NissanDetails(VinDetails):
     """Nissan VIN details extractor."""
 
-    MODELS = {
+    model = Detail(('vds', 1), {
         'A': ['Armada', 'Titan', 'Maxima'],
         'B': 'Sentra',
         'C': 'Versa (07-11)',
@@ -19,18 +19,18 @@ class NissanDetails(VinDetails):
         'S': ['240SX', 'Rogue (08-11)'],
         'U': 'Altima',
         'Z': ['300Z', '350Z', 'Murano'],
-    }
+    })
 
-    BODIES = {
+    body = Detail(('vds', 3), {
         '1': [BODY_SEDAN_4, 'Standard Body Truck'],
         '4': BODY_COUPE_2,
         '5': BODY_SW_5,
         '6': [BODY_CABRI_2, 'Fastback', 'King Cab Truck'],
         '7': 'Crew Cab Truck',
         '8': BODY_SW_8,
-    }
+    })
 
-    ENGINES = {
+    engine = Detail(('vds', 0), {
         'A': ['VG30D', 'VK45DE', 'VQ35DE', 'VK56DE', 'VQ40DE', 'QR25DE'],
         'B': ['KA24DE', 'SR20DE', 'VQ35HR', 'MR18DE', 'QR25DE'],
         'C': ['SR20DE', 'VG30DETT', 'QG18DE'],
@@ -43,33 +43,15 @@ class NissanDetails(VinDetails):
         'R': 'VG30DE',
         'S': 'KA24E',
         'T': 'VG33E',
-    }
+    })
 
-    PLANTS = {
+    plant = Detail(('vis', 1), {
         'C': 'Smyrna',
         'L': 'Aguas Calientes',
         'M': 'Tochigi',
         'N': 'Canton',
         'T': ['Tochigi', 'Oppama'],
         'W': 'Kyushyu',
-    }
+    })
 
-    @property
-    def model_code(self):
-        return self._vin.vds[1]
-
-    @property
-    def body_code(self):
-        return self._vin.vds[3]
-
-    @property
-    def engine_code(self):
-        return self._vin.vds[0]
-
-    @property
-    def plant_code(self):
-        return self._vin.vis[1]
-
-    @property
-    def serial(self):
-        return self._vin.vis[2:]
+    serial = Detail(('vis', slice(2, None)))

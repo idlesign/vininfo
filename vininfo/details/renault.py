@@ -1,14 +1,14 @@
 # -*- encoding: utf-8 -*-
 from __future__ import unicode_literals
 
-from ._base import VinDetails
+from ._base import VinDetails, Detail
 from ..dicts.bodies import *
 
 
 class RenaultDetails(VinDetails):
     """Renault VIN details extractor."""
 
-    MODELS = {
+    model = Detail(('vds', 1), {
         '0': 'Twingo',
         '1': 'R4',
         '2': 'R25',
@@ -29,9 +29,9 @@ class RenaultDetails(VinDetails):
         'P': 'Modus',
         'S': ['Logan', 'Sandero', 'Duster', 'Dokker', 'Lodgy'],
         'Y': 'Koleos',
-    }
+    })
 
-    BODIES = {
+    body = Detail(('vds', 0), {
         '2': BODY_SEDAN_2,
         '3': BODY_HATCH_3,
         '4': BODY_SEDAN_4,
@@ -54,19 +54,9 @@ class RenaultDetails(VinDetails):
         'N': BODY_MINIVAN_5,
         'S': BODY_SW_5,
         'U': BODY_PICKUP_2,
-    }
+    })
 
-    TRANSMISSION = {
-        '1': 'Automatic, 3-Gears',
-        '2': 'Automatic, 4-Gears',
-        '4': 'Manual, 5-Gears',
-        '5': 'Manual, 5-Gears',
-        '8': 'Manual, 5-Gears, 4x4',
-        'C': 'Manual, 5-Gears',
-        'D': 'Manual, 5-Gears',
-    }
-
-    PLANTS = {
+    plant = Detail(('vds', 4), {
         'A': 'Portugal',
         'B': 'Batilly',
         'С': 'Creil',
@@ -87,24 +77,16 @@ class RenaultDetails(VinDetails):
         'W': 'Valladolid',
         'X': 'Heuliez',
         'Z': 'USA',  # ? city
-    }
+    })
 
-    @property
-    def model_code(self):
-        return self._vin.vds[1]
+    transmission = Detail(('vds', 5), {
+        '1': 'Automatic, 3-Gears',
+        '2': 'Automatic, 4-Gears',
+        '4': 'Manual, 5-Gears',
+        '5': 'Manual, 5-Gears',
+        '8': 'Manual, 5-Gears, 4x4',
+        'C': 'Manual, 5-Gears',
+        'D': 'Manual, 5-Gears',
+    })
 
-    @property
-    def body_code(self):
-        return self._vin.vds[0]
-
-    @property
-    def plant_code(self):
-        return self._vin.vds[4]
-
-    @property
-    def transmission_code(self):
-        return self._vin.vds[5]
-
-    @property
-    def serial(self):
-        return self._vin.vis[1:]
+    serial = Detail(('vis', slice(1, None)))

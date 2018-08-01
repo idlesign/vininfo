@@ -21,7 +21,8 @@ class Annotatable(object):
 
             if isinstance(value, list):
                 value = ', '.join('%s' % val for val in value)
-            annotations[label] = value
+
+            annotations[label] = '%s' % value
 
         return OrderedDict((title, value) for title, value in sorted(annotations.items(), key=lambda item: item[0]))
 
