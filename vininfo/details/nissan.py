@@ -10,14 +10,14 @@ class NissanDetails(VinDetails):
 
     MODELS = {
         'A': ['Armada', 'Titan', 'Maxima'],
-        'B': ['Sentra'],
-        'C': ['Versa (07-11)'],
+        'B': 'Sentra',
+        'C': 'Versa (07-11)',
         'D': ['Truck', 'Xterra (00-04)', 'Frontier'],
-        'J': ['Maxima'],
-        'N': ['Xterra (05-11)'],
-        'R': ['Pathfinder'],
+        'J': 'Maxima',
+        'N': 'Xterra (05-11)',
+        'R': 'Pathfinder',
         'S': ['240SX', 'Rogue (08-11)'],
-        'U': ['Altima'],
+        'U': 'Altima',
         'Z': ['300Z', '350Z', 'Murano'],
     }
 
@@ -26,7 +26,7 @@ class NissanDetails(VinDetails):
         '4': BODY_COUPE_2,
         '5': BODY_SW_5,
         '6': [BODY_CABRI_2, 'Fastback', 'King Cab Truck'],
-        '7': ['Crew Cab Truck'],
+        '7': 'Crew Cab Truck',
         '8': BODY_SW_8,
     }
 
@@ -36,22 +36,22 @@ class NissanDetails(VinDetails):
         'C': ['SR20DE', 'VG30DETT', 'QG18DE'],
         'D': ['KA24DE', 'QG18DE', 'VQ35DE'],
         'E': ['VE30DE', 'GA16DE', 'VG33E'],
-        'F': ['KA24E'],
-        'H': ['VG30E'],
+        'F': 'KA24E',
+        'H': 'VG30E',
         'M': ['KA24DE', 'VG33ER'],
-        'N': ['VH45DE'],
-        'R': ['VG30DE'],
-        'S': ['KA24E'],
-        'T': ['VG33E'],
+        'N': 'VH45DE',
+        'R': 'VG30DE',
+        'S': 'KA24E',
+        'T': 'VG33E',
     }
 
     PLANTS = {
-        'C': ['Smyrna'],
-        'L': ['Aguas Calientes'],
-        'M': ['Tochigi'],
-        'N': ['Canton'],
+        'C': 'Smyrna',
+        'L': 'Aguas Calientes',
+        'M': 'Tochigi',
+        'N': 'Canton',
         'T': ['Tochigi', 'Oppama'],
-        'W': ['Kyushyu'],
+        'W': 'Kyushyu',
     }
 
     @property

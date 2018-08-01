@@ -19,11 +19,11 @@ def test_nissan():
 
     details = vin.details
     assert details.model_code == 'J'
-    assert details.model == ['Maxima']
+    assert details.model == 'Maxima'
     assert details.body_code == '1'
     assert details.body == ['Sedan 4-Door', 'Standard Body Truck']
     assert details.engine_code == 'N'
-    assert details.engine == ['VH45DE']
+    assert details.engine == 'VH45DE'
     assert details.plant_code == 'T'
     assert details.plant == ['Tochigi', 'Oppama']
     assert details.serial == '000001'
