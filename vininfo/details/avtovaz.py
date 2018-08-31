@@ -33,9 +33,9 @@ class AvtoVazDetails(VinDetails):
     })
 
     transmission = Detail(('vds', 4), {
-        '1': 'Manual VAZ',
-        '2': 'Semi-automatic',
-        '3': 'Manual Renault',
+        '1': 'Manual, 5-Gear (VAZ 21807)',
+        '2': 'Semi-automatic, 5-Gear (VAZ 21827)',
+        '3': 'Manual, 5-Gear (Renault JH3 514)',
     })
 
     serial = Detail(('vis', slice(2, None)))

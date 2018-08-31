@@ -2,6 +2,11 @@ vininfo changelog
 =================
 
 
+Unreleased
+----------
+* AvtoVAZ transmission types made more specific.
+
+
 v0.3.0
 ------
 + Added basic info for Opel and Renault.

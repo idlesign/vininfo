@@ -33,7 +33,7 @@ def test_lada():
     assert details.engine.code == '3'
     assert details.engine.name == '21179'
     assert details.transmission.code == '3'
-    assert details.transmission.name == 'Manual Renault'
+    assert details.transmission.name == 'Manual, 5-Gear (Renault JH3 514)'
     assert details.plant.code == 'Y'
     assert details.plant.name == 'Izhevsk'
     assert details.annotate() == OrderedDict([
@@ -42,6 +42,6 @@ def test_lada():
         ('Model', 'Vesta'),
         ('Plant', 'Izhevsk'),
         ('Serial', '144213'),
-        ('Transmission', 'Manual Renault'),
+        ('Transmission', 'Manual, 5-Gear (Renault JH3 514)'),
     ])
     assert not vin.verify_checksum()
