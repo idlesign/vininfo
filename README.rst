@@ -2,6 +2,12 @@ vininfo
 =======
 https://github.com/idlesign/vininfo
 
+.. image:: https://idlesign.github.io/lbc/py2-lbc.svg
+   :target: https://idlesign.github.io/lbc/
+   :alt: LBC Python 2
+
+----
+
 |release| |lic| |ci| |coverage| |health|
 
 .. |release| image:: https://img.shields.io/pypi/v/vininfo.svg
@@ -41,7 +47,7 @@ Additional info available for many vehicles from:
 Requirements
 ------------
 
-* Python 2.7, 3.4+
+* Python 2.7, 3.5+
 * `click` package for CLI
 
 
