@@ -7,6 +7,7 @@ Unreleased
 ! Dropped QA for Python 2.
 ! Dropped QA for Python 3.4.
 * AvtoVAZ transmission types made more specific.
+* Celebrating 1.0.0.
 
 
 v0.3.0
