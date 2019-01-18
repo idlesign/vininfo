@@ -2,7 +2,7 @@ from .toolbox import Vin
 from .exceptions import ValidationError, VininfoException
 
 
-VERSION = (0, 3, 0)
+VERSION = (1, 0, 0)
 """Application version number tuple."""
 
 VERSION_STR = '.'.join(map(str, VERSION))
