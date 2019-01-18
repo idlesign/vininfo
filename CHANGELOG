@@ -4,6 +4,7 @@ vininfo changelog
 
 Unreleased
 ----------
+! Dropped QA for Python 2.
 ! Dropped QA for Python 3.4.
 * AvtoVAZ transmission types made more specific.
 
