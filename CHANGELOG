@@ -2,6 +2,11 @@ vininfo changelog
 =================
 
 
+Unreleased
+----------
++ Allow extraction of basic information even for unsupported brands.
+
+
 v1.0.0
 ------
 ! Dropped QA for Python 2.

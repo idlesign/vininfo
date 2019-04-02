@@ -42,3 +42,7 @@ class Brand(object):
 
     def __str__(self):
         return '%s (%s)' % (self.title, self.manufacturer)
+
+
+class UnsupportedBrand(Brand):
+    """Unsupported brand."""

@@ -24,3 +24,10 @@ def test_checksum():
 
     # faked
     assert not Vin('1M8GDM9AyKP042788').verify_checksum()
+
+
+def test_unsupported_brand():
+
+    vin = Vin('2LNBL8EV9AX604020')
+    assert vin.manufacturer == 'UnsupportedBrand'
+    assert vin.country == 'Canada'

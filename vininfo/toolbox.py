@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 from datetime import datetime
 from itertools import cycle
 
-from .common import Annotatable, Brand
+from .common import Annotatable, Brand, UnsupportedBrand
 from .dicts import COUNTRIES, WMI, REGIONS
 from .exceptions import ValidationError
 from .utils import string_types
@@ -15,7 +15,7 @@ if False:  # pragma: nocover
 
 
 class Vin(Annotatable):
-    """Offers basic VIN data extraction ficilities."""
+    """Offers basic VIN data extraction facilities."""
 
     annotate_titles = {
         'manufacturer': 'Manufacturer',
@@ -97,7 +97,7 @@ class Vin(Annotatable):
     def brand(self):
         """Brand object.
 
-        :rtype: Brand|None
+        :rtype: Brand
         """
         wmi = self.wmi
 
@@ -108,6 +108,9 @@ class Vin(Annotatable):
 
         if isinstance(brand, string_types):
             brand = Brand(brand)
+
+        if brand is None:
+            brand = UnsupportedBrand()
 
         return brand
 
