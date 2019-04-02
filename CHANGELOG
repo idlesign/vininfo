@@ -2,8 +2,8 @@ vininfo changelog
 =================
 
 
-Unreleased
-----------
+v1.1.0
+------
 + Allow extraction of basic information even for unsupported brands.
 
 
