@@ -2,6 +2,11 @@ vininfo changelog
 =================
 
 
+Unreleased
+----------
++ WMI database extended.
+
+
 v1.1.0
 ------
 + Allow extraction of basic information even for unsupported brands.

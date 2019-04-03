@@ -28,6 +28,6 @@ def test_checksum():
 
 def test_unsupported_brand():
 
-    vin = Vin('2LNBL8EV9AX604020')
+    vin = Vin('200BL8EV9AX604020')
     assert vin.manufacturer == 'UnsupportedBrand'
     assert vin.country == 'Canada'
