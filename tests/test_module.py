@@ -14,8 +14,13 @@ def test_validation():
 
 def test_basic():
 
-    # faked
-    assert Vin('JSA12345678901234').manufacturer == 'Suzuki'
+    # number faked
+    vin = Vin('JSA12345678901234')
+    assert vin.manufacturer == 'Suzuki'
+    assert not vin.manufacturer_is_small
+
+    # number faked
+    assert Vin('TM912345678901234').manufacturer_is_small
 
 
 def test_checksum():

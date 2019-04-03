@@ -4,6 +4,7 @@ vininfo changelog
 
 Unreleased
 ----------
++ Added Vin.manufacturer_is_small property.
 + WMI database extended.
 
 

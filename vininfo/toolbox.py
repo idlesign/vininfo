@@ -123,6 +123,14 @@ class Vin(Annotatable):
         return self.brand.manufacturer
 
     @property
+    def manufacturer_is_small(self):
+        """A manufacturer who builds fewer than 1000 vehicles per year.
+
+        :rtype: bool
+        """
+        return str(self.wmi[2]) == '9'
+
+    @property
     def vds(self):
         """VDS (Vehicle Description Section)"""
         return self.num[3:9]
