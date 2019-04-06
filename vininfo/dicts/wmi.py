@@ -343,7 +343,7 @@ WMI = {
 'MAL': 'Hyundai',
 'MAT': 'Tata',
 'MBH': 'Nissan',
-'MC2': 'Volvo Eicher commercial vehicles limited.',
+'MC2': 'Volvo Eicher commercial vehicles limited',
 'MDH': 'Nissan',
 'MHR': 'Honda',
 'ML3': 'Mitsubishi Thailand',
@@ -442,7 +442,7 @@ WMI = {
 'VFJ': 'Renault',
 'VFZ': 'Citroen',
 'VH8': 'Microcar',
-VLG': 'Aixam'
+'VLG': 'Aixam',
 'VLU': 'Scania',
 'VN1': Opel(),
 'VNE': 'Irisbus',
