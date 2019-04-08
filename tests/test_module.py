@@ -36,3 +36,12 @@ def test_unsupported_brand():
     vin = Vin('200BL8EV9AX604020')
     assert vin.manufacturer == 'UnsupportedBrand'
     assert vin.country == 'Canada'
+
+
+def test_merge_wmi():
+    from vininfo.utils import merge_wmi
+
+    missing, lines = merge_wmi({'1DTEST': 'Some', '1GTEST': 'Other'})
+    assert missing == {'1DTEST', '1GTEST'}
+    assert "    '1D': 'Dodge',\n    '1DTEST': 'Some'," in lines
+    assert "    '1GT': 'GMC Truck',\n    '1GTEST': 'Other'," in lines
