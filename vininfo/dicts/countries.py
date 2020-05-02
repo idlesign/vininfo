@@ -1,8 +1,7 @@
-# -*- encoding: utf-8 -*-
-from __future__ import unicode_literals
+from typing import Dict
 
 
-def __unpack_countries_map(counties):
+def __unpack_countries_map(counties: Dict[str, str]) -> Dict[str, str]:
     unpacked = {}
 
     seq = 'ABCDEFGHJKLMNPRSTUVWXYZ1234567890'

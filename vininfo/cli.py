@@ -22,7 +22,7 @@ def show(vin):
 
     def out(annotatable):
         for k, v in annotatable.annotate().items():
-            click.secho('%s: ' % k, fg='green', nl=False)
+            click.secho(f'{k}: ', fg='green', nl=False)
             click.secho(v)
 
     out(num)

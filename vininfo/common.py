@@ -1,14 +1,14 @@
-# -*- encoding: utf-8 -*-
-from __future__ import unicode_literals
+from typing import Dict, Any, Type
 
-from collections import OrderedDict
+if False:  # pragma: nocover
+    from .details._base import VinDetails  # noqa
 
 
-class Annotatable(object):
+class Annotatable:
 
     annotate_titles = {}
 
-    def annotate(self):
+    def annotate(self) -> Dict[str, Any]:
 
         annotations = {}
         no_attr = set()
@@ -20,28 +20,28 @@ class Annotatable(object):
                 continue
 
             if isinstance(value, list):
-                value = ', '.join('%s' % val for val in value)
+                value = ', '.join(f'{val}' for val in value)
 
-            annotations[label] = '%s' % value
+            annotations[label] = f'{value}'
 
-        return OrderedDict((title, value) for title, value in sorted(annotations.items(), key=lambda item: item[0]))
+        return dict((title, value) for title, value in sorted(annotations.items(), key=lambda item: item[0]))
 
 
-class Brand(object):
+class Brand:
 
     __slots__ = ['manufacturer']
 
-    extractor = None
+    extractor: Type['VinDetails'] = None
 
-    def __init__(self, manufacturer=None):
+    def __init__(self, manufacturer: str = None):
         self.manufacturer = manufacturer or self.title
 
     @property
-    def title(self):
+    def title(self) -> str:
         return self.__class__.__name__
 
     def __str__(self):
-        return '%s (%s)' % (self.title, self.manufacturer)
+        return f'{self.title} ({self.manufacturer})'
 
 
 class UnsupportedBrand(Brand):

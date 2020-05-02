@@ -1,6 +1,3 @@
-# -*- encoding: utf-8 -*-
-from __future__ import unicode_literals
-
 from ._base import VinDetails, Detail
 from ..dicts.bodies import *
 

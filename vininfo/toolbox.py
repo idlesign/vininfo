@@ -1,17 +1,13 @@
-# -*- encoding: utf-8 -*-
-from __future__ import unicode_literals
-
 from datetime import datetime
 from itertools import cycle
+from typing import Optional, List
 
 from .common import Annotatable, Brand, UnsupportedBrand
 from .dicts import COUNTRIES, WMI, REGIONS
 from .exceptions import ValidationError
-from .utils import string_types
-
 
 if False:  # pragma: nocover
-    from .details._base import VinDetails
+    from .details._base import VinDetails  # noqa
 
 
 class Vin(Annotatable):
@@ -24,7 +20,7 @@ class Vin(Annotatable):
         'years': 'Years',
     }
 
-    def __init__(self, num):
+    def __init__(self, num: str):
         self.num = self.validate(num)
 
         details_extractor = self.brand.extractor
@@ -32,38 +28,36 @@ class Vin(Annotatable):
         if details_extractor:
             details_extractor = details_extractor(self)
 
-        self.details = details_extractor  # type: VinDetails
+        self.details: VinDetails = details_extractor
 
     def __str__(self):
         return self.num
 
     @classmethod
-    def validate(self, num):
+    def validate(self, num: str) -> str:
         """Performs basic VIN validation and sanation.
 
-        :param str|unicode num:
-        :rtype: str|unicode
+        :param num:
+
         """
         num = num.strip().upper()
 
         num_len = len(num)
         if num_len != 17:
-            raise ValidationError('VIN number requires 17 chars (%s given)' % num_len)
+            raise ValidationError(f'VIN number requires 17 chars ({num_len} given)')
 
         illegal = {'I', 'O', 'Q'}
 
         for ch in num:
             if ch in illegal:
-                raise ValidationError('VIN number should not contain: %s' % ', '.join(illegal))
+                raise ValidationError(f"VIN number should not contain: {', '.join(illegal)}")
 
         return num
 
-    def verify_checksum(self):
+    def verify_checksum(self) -> bool:
         """Performs checksum verification.
 
         .. warning:: Not every manufacturer uses VIN checksum rules.
-
-        :rtype: bool
 
         """
         if self.vis[0] in {'U', 'Z', '0'}:
@@ -89,16 +83,14 @@ class Vin(Annotatable):
         return str(check_digit) == self.vds[5]
 
     @property
-    def wmi(self):
+    def wmi(self) -> str:
         """WMI (World Manufacturers Identification)"""
         return self.num[:3]
 
     @property
-    def brand(self):
-        """Brand object.
+    def brand(self) -> Brand:
+        """Brand object."""
 
-        :rtype: Brand
-        """
         wmi = self.wmi
 
         brand = WMI.get(wmi)
@@ -106,7 +98,7 @@ class Vin(Annotatable):
         if not brand:
             brand = WMI.get(wmi[:2])
 
-        if isinstance(brand, string_types):
+        if isinstance(brand, str):
             brand = Brand(brand)
 
         if brand is None:
@@ -115,37 +107,31 @@ class Vin(Annotatable):
         return brand
 
     @property
-    def manufacturer(self):
-        """Manufacturer title.
-
-        :rtype: str|unicode
-        """
+    def manufacturer(self) -> str:
+        """Manufacturer title."""
         return self.brand.manufacturer
 
     @property
-    def manufacturer_is_small(self):
-        """A manufacturer who builds fewer than 1000 vehicles per year.
-
-        :rtype: bool
-        """
+    def manufacturer_is_small(self) -> bool:
+        """A manufacturer who builds fewer than 1000 vehicles per year."""
         return str(self.wmi[2]) == '9'
 
     @property
-    def vds(self):
+    def vds(self) -> str:
         """VDS (Vehicle Description Section)"""
         return self.num[3:9]
 
     @property
-    def vis(self):
+    def vis(self) -> str:
         """VIS (Vehicle Identifier Section)"""
         return self.num[9:17]
 
     @property
-    def region_code(self):
+    def region_code(self) -> str:
         return self.wmi[0]
 
     @property
-    def region(self):
+    def region(self) -> Optional[str]:
         code = self.region_code
 
         title = None
@@ -158,15 +144,15 @@ class Vin(Annotatable):
         return title
 
     @property
-    def country_code(self):
+    def country_code(self) -> str:
         return self.wmi[0:2]
 
     @property
-    def country(self):
+    def country(self) -> Optional[str]:
         return COUNTRIES.get(self.country_code)
 
     @property
-    def years(self):
+    def years(self) -> List[int]:
         letters = 'ABCDEFGHJKLMNPRSTVWXY123456789'
         year_letter = self.vis[0]
 

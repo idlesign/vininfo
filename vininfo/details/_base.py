@@ -1,20 +1,20 @@
-# -*- encoding: utf-8 -*-
-from __future__ import unicode_literals
+from typing import Optional, Type
 
 from ..common import Annotatable
 
 if False:  # pragma: nocover
-    from ..toolbox import Vin
+    from ..toolbox import Vin  # noqa
 
 
-class DetailWrapper(object):
+class DetailWrapper:
 
     __slots__ = ['code', 'name']
 
-    def __init__(self, details, detail):
+    def __init__(self, details: 'VinDetails', detail: 'Detail'):
         """
-        :param VinDetails details:
-        :param Detail detail: 
+        :param details:
+        :param detail:
+
         """
         vin = details._vin
         attr_name, attr_idx = detail.source
@@ -27,14 +27,14 @@ class DetailWrapper(object):
         if callable(defs):
             defs = defs(details)
 
-        self.code = code
-        self.name = defs.get(code)
+        self.code: str = code
+        self.name: Optional[str] = defs.get(code)
 
     def __str__(self):
         return self.name or self.code
 
 
-class Detail(object):
+class Detail:
     """Vin detail descriptor."""
 
     __slots__ = ['source', 'defs']
@@ -43,13 +43,12 @@ class Detail(object):
         self.source = code_source
         self.defs = definitions or {}
 
-    def __get__(self, instance, owner):
+    def __get__(self, instance: 'VinDetails', owner: Type['VinDetails']) -> DetailWrapper:
         """
-        :param VinDetails instance:
+        :param instance:
         :param owner:
-        :rtype: DetailWrapper
-        """
 
+        """
         return DetailWrapper(instance, self)
 
 
@@ -65,12 +64,8 @@ class VinDetails(Annotatable):
         'serial': 'Serial',
     }
 
-    def __init__(self, vin):
-        """
-        :param Vin vin:
-        """
+    def __init__(self, vin: 'Vin'):
         self._vin = vin
-        # self._cached = {}
 
     body = Detail()
     engine = Detail()

@@ -1,6 +1,3 @@
-# -*- encoding: utf-8 -*-
-from __future__ import unicode_literals
-
 
 BODY_CABRI_2 = 'Cabriolet, 2-Door'
 BODY_COUPE_2 = 'Coupe, 2-Door'

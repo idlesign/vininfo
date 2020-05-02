@@ -1,19 +1,7 @@
-# -*- encoding: utf-8 -*-
-from __future__ import unicode_literals
-
-import sys
+from typing import Tuple
 
 
-PY3 = sys.version_info[0] == 3
-
-if PY3:  # pragma: nocover
-    string_types = str,
-
-else:  # pragma: nocover
-    string_types = basestring,
-
-
-def merge_wmi(new_wmis):
+def merge_wmi(new_wmis: dict) -> Tuple[set, str]:
     """Helper. Used to update vininfo.dicts.wmi.WMI dictionary
     with entries from another dictionary.
 
@@ -23,8 +11,8 @@ def merge_wmi(new_wmis):
         0. set of new keys borrowed from `new_wmis`;
         1. source code string to replace the current `WMI` dictionary with.
 
-    :param dict new_wmis: Mapping from WMI (two or three chars) to manufacturer title.
-    :rtype: tuple[set, str]
+    :param new_wmis: Mapping from WMI (two or three chars) to manufacturer title.
+
     """
     import inspect
     import re
@@ -49,12 +37,12 @@ def merge_wmi(new_wmis):
     wmi_missing = set(new_wmis.keys()).difference(wmi_src_dict.keys())
 
     for key in wmi_missing:
-        wmi_src_dict[key] = "'%s'" % new_wmis[key]
+        wmi_src_dict[key] = f"'{new_wmis[key]}'"
 
     wmi_dst = ['WMI = {']
 
     for key, value in sorted(wmi_src_dict.items(), key=lambda item: item[0]):
-        wmi_dst.append("    '%s': %s," % (key, value))
+        wmi_dst.append(f"    '{key}': {value},")
 
     wmi_dst.append('}')
 
