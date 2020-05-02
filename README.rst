@@ -8,7 +8,7 @@ https://github.com/idlesign/vininfo
 
 ----
 
-|release| |lic| |ci| |coverage| |health|
+|release| |lic| |ci| |coverage|
 
 .. |release| image:: https://img.shields.io/pypi/v/vininfo.svg
     :target: https://pypi.python.org/pypi/vininfo
@@ -21,9 +21,6 @@ https://github.com/idlesign/vininfo
 
 .. |coverage| image:: https://img.shields.io/coveralls/idlesign/vininfo/master.svg
     :target: https://coveralls.io/r/idlesign/vininfo
-
-.. |health| image:: https://landscape.io/github/idlesign/vininfo/master/landscape.svg?style=flat
-    :target: https://landscape.io/github/idlesign/vininfo/master
 
 
 Description

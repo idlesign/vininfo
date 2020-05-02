@@ -1,7 +1,0 @@
-strictness: medium
-
-autodetect: yes
-
-ignore-paths:
-    - docs
-    - tests
