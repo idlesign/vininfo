@@ -2,6 +2,12 @@ vininfo changelog
 =================
 
 
+Unreleased
+----------
+* Added QA for Py 3.8.
+* Dropped QA for Py 3.5.
+
+
 v1.3.0
 ------
 + WMI database extended.
