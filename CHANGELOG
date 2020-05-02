@@ -2,8 +2,8 @@ vininfo changelog
 =================
 
 
-Unreleased
-----------
+v1.4.0 [2020-05-02]
+-------------------
 ! Dropped support for Py 2.
 * Added QA for Py 3.8.
 * Dropped QA for Py 3.5.
