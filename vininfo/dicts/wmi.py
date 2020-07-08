@@ -418,7 +418,7 @@ WMI = {
     'UU1': Renault('Renault Dacia'),
     'V0L': Opel(),
     'VA0': 'ÖAF',
-    'VBK': 'Husqvarna',
+    'VBK': 'KTM',
     'VF0': 'Ford',
     'VF1': Renault(),
     'VF2': Renault(),
