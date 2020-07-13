@@ -106,3 +106,21 @@ Python
 
     vin.verify_checksum()  # False
     Vin('1M8GDM9AXKP042788').verify_checksum()  # True
+
+
+Development
+-----------
+
+One can add missing WMI(s) using instructions from ``dicts/wmi.py``:
+``WMI`` dictionary, that maps WMI strings to manufacturers.
+
+Those manufacturers may be represented by simple strings, or instances of ``Brand``
+subclasses (see ``brands.py``).
+
+If you know how to decode additional information (model, body, engine, etc.)
+encoded in VIN, you may also want to create a so-called `details extractor`
+for a brand.
+
+Details extractors are ``VinDetails`` subclasses in most cases making use of
+``Detail`` descriptors to represent additional information
+(see ``details/nissan.py`` for example).
