@@ -44,7 +44,7 @@ Additional info available for many vehicles from:
 Requirements
 ------------
 
-* Python 2.7, 3.6+
+* Python 3.6+
 * `click` package for CLI
 
 
