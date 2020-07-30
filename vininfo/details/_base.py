@@ -8,7 +8,7 @@ if False:  # pragma: nocover
 
 class DetailWrapper:
 
-    __slots__ = ['code', 'name']
+    __slots__ = ['code', 'name', '_supported']
 
     def __init__(self, details: 'VinDetails', detail: 'Detail'):
         """
@@ -17,21 +17,33 @@ class DetailWrapper:
 
         """
         vin = details._vin
-        attr_name, attr_idx = detail.source
-        code_source = getattr(vin, attr_name)
 
-        code = code_source[attr_idx]
+        source = detail.source
+
+        code = ''
+
+        if source:
+            attr_name, attr_idx = source
+            code_source = getattr(vin, attr_name)
+
+            code = code_source[attr_idx]
 
         defs = detail.defs
 
         if callable(defs):
             defs = defs(details)
 
+        self._supported = bool(source)
+        """Flag indicating that this detail extraction is available."""
+
         self.code: str = code
         self.name: Optional[str] = defs.get(code)
 
     def __str__(self):
         return self.name or self.code
+
+    def __bool__(self):
+        return self._supported
 
 
 class Detail:

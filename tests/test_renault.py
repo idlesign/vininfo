@@ -18,6 +18,8 @@ def test_renault():
     assert '%s' % vin.brand == 'Renault (Renault)'
 
     details = vin.details
+    assert not details.engine
+    assert details.model
     assert details.model.code == 'S'
     assert details.model.name == ['Logan', 'Sandero', 'Duster', 'Dokker', 'Lodgy']
     assert details.body.code == '4'
@@ -27,3 +29,10 @@ def test_renault():
     assert details.transmission.code == '4'
     assert details.transmission.name == 'Manual, 5-Gears'
     assert details.serial.code == '1234567'
+
+
+def test_bogus():
+    vin = Vin('VF1KG1PBE34488860')
+    details = vin.details
+    assert details.engine.code == ''
+    assert not details.engine
