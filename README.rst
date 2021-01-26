@@ -2,11 +2,6 @@ vininfo
 =======
 https://github.com/idlesign/vininfo
 
-.. image:: https://idlesign.github.io/lbc/py2-lbc.svg
-   :target: https://idlesign.github.io/lbc/
-   :alt: LBC Python 2
-
-----
 
 |release| |lic| |ci| |coverage|
 
