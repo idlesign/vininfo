@@ -534,6 +534,7 @@ WMI = {
     'XNC': 'Mitsubishi',
     'XTA': Lada('AvtoVAZ'),
     'XUF': Opel(),
+    'XWE': 'Kia',
     'XWF': Opel(),
     'Y6D': Opel(),
     'YAR': 'Toyota',
