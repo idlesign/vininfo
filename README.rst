@@ -40,7 +40,7 @@ Requirements
 ------------
 
 * Python 3.6+
-* `click` package for CLI
+* ``click`` package for CLI
 
 
 Usage
@@ -49,7 +49,7 @@ Usage
 CLI
 ~~~
 
-`click` package is required for CLI. You can install `vininfo` with `click` using::
+``click`` package is required for CLI. You can install ``vininfo`` with ``click`` using::
 
     $ pip install vininfo[cli]
 
