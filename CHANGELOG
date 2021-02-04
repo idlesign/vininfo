@@ -2,6 +2,11 @@ vininfo changelog
 =================
 
 
+Unreleased
+----------
++ WMI database extended (see #8).
+
+
 v1.4.2 [2021-01-26]
 -------------------
 * Added Kia WMI.
