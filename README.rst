@@ -2,11 +2,6 @@ vininfo
 =======
 https://github.com/idlesign/vininfo
 
-.. image:: https://idlesign.github.io/lbc/py2-lbc.svg
-   :target: https://idlesign.github.io/lbc/
-   :alt: LBC Python 2
-
-----
 
 |release| |lic| |ci| |coverage|
 
@@ -45,7 +40,7 @@ Requirements
 ------------
 
 * Python 3.6+
-* `click` package for CLI
+* ``click`` package for CLI
 
 
 Usage
@@ -54,7 +49,7 @@ Usage
 CLI
 ~~~
 
-`click` package is required for CLI. You can install `vininfo` with `click` using::
+``click`` package is required for CLI. You can install ``vininfo`` with ``click`` using::
 
     $ pip install vininfo[cli]
 
