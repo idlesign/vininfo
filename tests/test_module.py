@@ -11,6 +11,18 @@ def test_validation():
     with pytest.raises(ValidationError):
          Vin('AAAAAAAAAAAAAAAAO')
 
+    with pytest.raises(ValidationError):
+         Vin('AAAAAAAAAAAAAAAAO')
+
+    with pytest.raises(ValidationError):
+         Vin('1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n1')
+
+    with pytest.raises(ValidationError):
+         Vin('AAAAAAAIAAAAAAAAA')
+
+    with pytest.raises(ValidationError):
+         Vin('AAAAAAA:AAAAAAAAA')
+
 
 def test_basic():
 
