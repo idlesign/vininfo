@@ -46,11 +46,9 @@ class Vin(Annotatable):
         if num_len != 17:
             raise ValidationError(f'VIN number requires 17 chars ({num_len} given)')
 
-        illegal = {'I', 'O', 'Q'}
-
-        for ch in num:
-            if ch in illegal:
-                raise ValidationError(f"VIN number should not contain: {', '.join(illegal)}")
+        pattern = r"^[A-HJ-NPR-Z0-9]{17}$"
+        if not re.match(pattern, num):
+            raise ValidationError(f"VIN number must only contain alphanumeric symbols except 'I', 'O', and 'Q' ")
 
         return num
 
