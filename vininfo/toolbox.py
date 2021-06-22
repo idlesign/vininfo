@@ -1,5 +1,6 @@
 from datetime import datetime
 from itertools import cycle
+import re
 from typing import Optional, List
 
 from .common import Annotatable, Brand, UnsupportedBrand
