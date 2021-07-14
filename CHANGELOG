@@ -2,6 +2,11 @@ vininfo changelog
 =================
 
 
+Unreleased
+----------
+* Now using regex VIN validation.
+
+
 v1.5.0 [2021-02-04]
 -------------------
 + WMI database extended (see #8).
