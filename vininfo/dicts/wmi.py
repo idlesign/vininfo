@@ -573,6 +573,7 @@ WMI = {
     'W0L': Opel('Opel/Vauxhall'),
     'W0S': Opel('Opel Special Vehicles'),
     'W0V': Opel(),
+    'W1': 'Mercedes-Benz',
     'WA1': 'Audi',
     'WAG': 'Neoplan',
     'WAP': 'Alpina',
