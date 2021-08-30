@@ -2,6 +2,11 @@ vininfo changelog
 =================
 
 
+Unreleased
+----------
++ WMI dict is updated.
+
+
 v1.5.1 [2021-07-14]
 -------------------
 * Now using regex VIN validation.
