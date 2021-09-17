@@ -117,7 +117,7 @@ class Vin(Annotatable):
 
     @property
     def vds(self) -> str:
-        """VDS (Vehicle Description Section)"""
+        """VDS (Vehicle Descriptor Section)"""
         return self.num[3:9]
 
     @property
