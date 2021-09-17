@@ -10,7 +10,7 @@ def test_nissan():
     assert vin.manufacturer == 'Nissan'
     assert vin.vds == 'NJ01CX'
     assert vin.vis == 'ST000001'
-    assert vin.years == [1995]
+    assert vin.years == [2025, 1995]
     assert vin.region_code == '5'
     assert vin.region == 'North America'
     assert vin.country_code == '5N'
