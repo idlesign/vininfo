@@ -1,9 +1,9 @@
 
 REGIONS = {
-    'ABCDEFGH': 'Africa',
+    'ABC': 'Africa',
     'JKLMNPR': 'Asia',
     'STUVWXYZ': 'Europe',
-    '12345': 'North America',
-    '67': 'Oceania',
+    '123457': 'North America',
+    '6': 'Oceania',
     '89': 'South America',
 }
