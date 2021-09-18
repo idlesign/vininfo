@@ -117,7 +117,7 @@ class Vin(Annotatable):
 
     @property
     def vds(self) -> str:
-        """VDS (Vehicle Description Section)"""
+        """VDS (Vehicle Descriptor Section)"""
         return self.num[3:9]
 
     @property
@@ -172,3 +172,15 @@ class Vin(Annotatable):
         result.sort(reverse=True)
 
         return result
+
+    @property
+    def squish_vin(self) -> str:
+        """Squish (or Pattern) VIN.
+
+        The first 11 digits of the VIN minus the 9th digit (positions 1-8,
+        positions 10 and 11).
+
+        Squish VIN encodes vehicle information while preventing its precise
+        identification. It can be useful for anonymization and privacy purposes.
+        """
+        return self.num[:8] + self.num[9:11]
