@@ -16,9 +16,9 @@ def test_lada():
     assert vin.region_code == 'X'
     assert vin.region == 'Europe'
     assert vin.country_code == 'XT'
-    assert vin.country == 'USSR/CIS'
+    assert vin.country == 'Russia'
     assert vin.annotate() == OrderedDict([
-        ('Country', 'USSR/CIS'),
+        ('Country', 'Russia'),
         ('Manufacturer', 'AvtoVAZ'),
         ('Region', 'Europe'),
         ('Years', '2018, 1988'),
