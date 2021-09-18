@@ -74,6 +74,7 @@ class VinDetails(Annotatable):
         'plant': 'Plant',
         'transmission': 'Transmission',
         'restraint': 'Restraint',
+        'series': 'Series',
         'serial': 'Serial',
     }
 
@@ -86,4 +87,5 @@ class VinDetails(Annotatable):
     plant = Detail()
     transmission = Detail()
     restraint = Detail()
+    series = Detail()
     serial = Detail()
