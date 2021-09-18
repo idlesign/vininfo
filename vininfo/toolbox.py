@@ -1,5 +1,3 @@
-from datetime import datetime
-from itertools import cycle
 import re
 from typing import Optional, List
 
@@ -154,21 +152,5 @@ class Vin(Annotatable):
     def years(self) -> List[int]:
         letters = 'ABCDEFGHJKLMNPRSTVWXY123456789'
         year_letter = self.vis[0]
-
-        year = 1979
-        year_current = datetime.now().year
-
-        result = []
-
-        for letter in cycle(letters):
-            year += 1
-
-            if letter == year_letter:
-                result.append(year)
-
-            if year == year_current:
-                break
-
-        result.sort(reverse=True)
-
-        return result
+        i = letters.index(year_letter)
+        return [1980 + len(letters) + i, 1980 + i]
