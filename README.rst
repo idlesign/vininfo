@@ -3,16 +3,13 @@ vininfo
 https://github.com/idlesign/vininfo
 
 
-|release| |lic| |ci| |coverage|
+|release| |lic| |coverage|
 
 .. |release| image:: https://img.shields.io/pypi/v/vininfo.svg
     :target: https://pypi.python.org/pypi/vininfo
 
 .. |lic| image:: https://img.shields.io/pypi/l/vininfo.svg
     :target: https://pypi.python.org/pypi/vininfo
-
-.. |ci| image:: https://img.shields.io/travis/idlesign/vininfo/master.svg
-    :target: https://travis-ci.org/idlesign/vininfo
 
 .. |coverage| image:: https://img.shields.io/coveralls/idlesign/vininfo/master.svg
     :target: https://coveralls.io/r/idlesign/vininfo
