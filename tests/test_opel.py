@@ -14,7 +14,7 @@ def test_opel():
     assert vin.region_code == 'W'
     assert vin.region == 'Europe'
     assert vin.country_code == 'W0'
-    assert vin.country == 'Germany/West Germany'
+    assert vin.country == 'Germany'
     assert '%s' % vin.brand == 'Opel (Opel/Vauxhall)'
 
     details = vin.details
