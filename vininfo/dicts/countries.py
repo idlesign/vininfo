@@ -7,7 +7,7 @@ def __unpack_countries_map(counties: Dict[str, str]) -> Dict[str, str]:
     seq = 'ABCDEFGHJKLMNPRSTUVWXYZ1234567890'
 
     for code, title in counties.items():
-        first, _, span  = code.partition('-')
+        first, _, span = code.partition('-')
 
         if span:
             ch_from, ch_till = span
@@ -22,9 +22,7 @@ def __unpack_countries_map(counties: Dict[str, str]) -> Dict[str, str]:
     return unpacked
 
 
-# ISO 3780
-# https://standards.iso.org/iso/3780/
-# `docs/Current WMI World Codes chart_Sept 2015.pdf`
+# ISO 3780 https://www.iso.org/standard/45844.html
 COUNTRIES = __unpack_countries_map({
     'A-AH': 'South Africa',
     'A-JK': 'Ivory Coast',

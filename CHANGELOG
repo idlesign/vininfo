@@ -4,6 +4,7 @@ vininfo changelog
 
 Unreleased
 ----------
+! Regions and Countries list is updated accoring to ISO 3780. Info for vehicles made before 2009 may be affected.
 + Model year check in Vin.verify_checksum() is now optional, on by default (see #19).
 
 
