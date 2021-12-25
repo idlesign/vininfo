@@ -47,7 +47,7 @@ def test_unsupported_brand():
 
     vin = Vin('200BL8EV9AX604020')
     assert vin.manufacturer == 'UnsupportedBrand'
-    assert vin.country == 'Canada'
+    assert vin.country is None
 
 
 def test_merge_wmi():
