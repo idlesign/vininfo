@@ -53,13 +53,16 @@ class Vin(Annotatable):
 
         return num
 
-    def verify_checksum(self) -> bool:
+    def verify_checksum(self, *, check_year: bool = True) -> bool:
         """Performs checksum verification.
 
         .. warning:: Not every manufacturer uses VIN checksum rules.
 
+        :param check_year: Whether to also check the model year.
+            Defaults to False since not all manufacturer abey the rule.
+
         """
-        if self.vis[0] in {'U', 'Z', '0'}:
+        if check_year and self.vis[0] in {'U', 'Z', '0'}:
             return False
 
         trans = {

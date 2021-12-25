@@ -42,6 +42,11 @@ def test_checksum():
     # faked
     assert not Vin('1M8GDM9AyKP042788').verify_checksum()
 
+    # non strict
+    non_strict = Vin('WBA71DC010CH14720')
+    assert non_strict.verify_checksum(check_year=False)
+    assert not non_strict.verify_checksum()
+
 
 def test_unsupported_brand():
 
@@ -57,6 +62,7 @@ def test_merge_wmi():
     assert missing == {'1DTEST', '1GTEST'}
     assert "    '1D': 'Dodge',\n    '1DTEST': 'Some'," in lines
     assert "    '1GT': 'GMC Truck',\n    '1GTEST': 'Other'," in lines
+
 
 def test_squish_vin():
      assert Vin('KF1SF08WJ8B257338').squish_vin == 'KF1SF08W8B'
