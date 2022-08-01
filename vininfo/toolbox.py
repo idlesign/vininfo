@@ -59,7 +59,7 @@ class Vin(Annotatable):
         .. warning:: Not every manufacturer uses VIN checksum rules.
 
         :param check_year: Whether to also check the model year.
-            Defaults to False since not all manufacturer abey the rule.
+            Note that not all manufacturer abey the rule. Default: True.
 
         """
         if check_year and self.vis[0] in {'U', 'Z', '0'}:
