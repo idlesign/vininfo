@@ -544,6 +544,7 @@ WMI = {
     'VNE': 'Irisbus',
     'VNK': 'Toyota',
     'VNV': Renault(),
+    'VR7': 'Citroën',
     'VS1': 'Iveco',
     'VS3': 'Peugeot',
     'VS5': Renault(),
