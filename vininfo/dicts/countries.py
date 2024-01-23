@@ -96,6 +96,7 @@ COUNTRIES = __unpack_countries_map({
     'V-AE': 'Austria',
     'V-FR': 'France',
     'V-SW': 'Spain',
+    'V-X2': 'Serbia',
     'V-35': 'Croatia',
     'V-68': 'Estonia',
     'W-': 'Germany',
