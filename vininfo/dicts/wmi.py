@@ -314,6 +314,7 @@ WMI = {
     'B01': 'Cadillac',
     'CF1': Renault(),
     'CL9': 'Wallyscar',
+    'DA4': 'Jeep',
     'EDB': 'Mercedes-Benz',
     'FM2': 'Mercury',
     'FSM': 'FSM',
