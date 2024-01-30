@@ -43,6 +43,7 @@ COUNTRIES = __unpack_countries_map({
     'C-AB': 'Egypt',
     'C-FG': 'Morocco',
     'C-LM': 'Zambia',
+    'D-AE': 'Egypt',
     'H-': 'China',
     'J-': 'Japan',
     'K-FH': 'Israel',
