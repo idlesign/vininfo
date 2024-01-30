@@ -6,6 +6,7 @@ Unreleased
 ----------
 + Add Serbia to countries.
 + Include Jeep Egypt codes.
+* Add QA for Python 3.11.
 
 
 v1.7.0 [2021-12-25]
