@@ -2,8 +2,8 @@ vininfo changelog
 =================
 
 
-Unreleased
-----------
+v1.8.0 [2024-01-30]
+-------------------
 + Add Serbia to countries.
 + Include Jeep Egypt codes.
 * Add QA for Python 3.11.
