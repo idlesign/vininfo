@@ -2,6 +2,12 @@ vininfo changelog
 =================
 
 
+Unreleased
+----------
++ Add Serbia to countries.
++ Include Jeep Egypt codes.
+
+
 v1.7.0 [2021-12-25]
 -------------------
 ! Regions and Countries list is updated accoring to ISO 3780. Info for vehicles made before 2009 may be affected.
