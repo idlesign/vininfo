@@ -10,6 +10,7 @@ def test_opel():
     assert vin.manufacturer == 'Opel/Vauxhall'
     assert vin.vds == 'PC6DB3'
     assert vin.vis == 'CC123456'
+    assert vin.years_code == 'C'
     assert vin.years == [2012, 1982]
     assert vin.region_code == 'W'
     assert vin.region == 'Europe'

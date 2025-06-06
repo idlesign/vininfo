@@ -12,6 +12,7 @@ def test_lada():
     assert vin.manufacturer == 'AvtoVAZ'
     assert vin.vds == 'GFK330'
     assert vin.vis == 'JY144213'
+    assert vin.years_code == 'J'
     assert vin.years == [2018, 1988]
     assert vin.region_code == 'X'
     assert vin.region == 'Europe'

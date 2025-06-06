@@ -20,3 +20,13 @@ class Opel(Brand):
 class Renault(Brand):
 
     extractor = RenaultDetails
+
+
+class Dafra(Brand):
+
+    extractor = DafraDetails
+
+
+class Bajaj(Brand):
+
+    extractor = BajajDetails

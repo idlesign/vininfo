@@ -1,8 +1,8 @@
-from typing import Optional, Type
+from typing import Optional, Type, TYPE_CHECKING
 
 from ..common import Annotatable
 
-if False:  # pragma: nocover
+if TYPE_CHECKING:  # pragma: nocover
     from ..toolbox import Vin  # noqa
 
 
@@ -33,11 +33,11 @@ class DetailWrapper:
         if callable(defs):
             defs = defs(details)
 
-        self._supported = bool(source)
-        """Flag indicating that this detail extraction is available."""
-
         self.code: str = code
         self.name: Optional[str] = defs.get(code)
+
+        self._supported = bool(source) or bool(self.name)
+        """Flag indicating that this detail extraction is available."""
 
     def __str__(self):
         return self.name or self.code
