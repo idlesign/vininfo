@@ -6,8 +6,8 @@ from ..dicts.bodies import BODY_MOTORCYCLE
 class DafraDetails(VinDetails):
 
     model = Detail(('vds', slice(0, 2)), {
-        'CA': 'SPEED 150',
-        'CB': 'KANSAS 150',
+        'CA': 'Speed 150',
+        'CB': 'Kansas 150',
     })
 
     # for a while, it will be a motorcycle regardless of the code source
