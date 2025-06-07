@@ -1,7 +1,7 @@
 from datetime import datetime
 from typing import Dict, Any, Type, Set, TYPE_CHECKING, List
 
-if TYPE_CHECKING:
+if TYPE_CHECKING: # pragma: nocover
     from .details._base import VinDetails  # noqa
 
 def constant_info(info):
