@@ -1,4 +1,5 @@
 from collections import OrderedDict
+from typing import ClassVar
 
 import pytest
 
@@ -50,14 +51,15 @@ def test_checksum():
     assert non_strict.verify_checksum(check_year=False)
     assert not non_strict.verify_checksum()
 
-class NoAttr(Annotatable):
-    annotate_titles = {
-        'no_attr': 'NoAttr'
-    }
 
 def test_annotatable():
+    class NoAttr(Annotatable):
+        annotate_titles: ClassVar = {
+            'no_attr': 'NoAttr'
+        }
     no_attr = NoAttr()
     assert no_attr.annotate() == OrderedDict()
+
 
 def test_unsupported_brand():
 
