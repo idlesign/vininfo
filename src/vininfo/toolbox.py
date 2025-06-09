@@ -1,13 +1,13 @@
 import re
 from datetime import datetime, timezone
-from typing import ClassVar
+from typing import TYPE_CHECKING, ClassVar
 
 from .common import Annotatable, Assembler, Brand, UnsupportedBrand
 from .dicts import COUNTRIES, REGIONS, WMI
 from .exceptions import ValidationError
 
-if False:  # pragma: nocover
-    from .details._base import VinDetails  # noqa
+if TYPE_CHECKING:
+    from .details._base import VinDetails
 
 
 class Vin(Annotatable):
@@ -41,7 +41,7 @@ class Vin(Annotatable):
         return self.num
 
     @classmethod
-    def validate(self, num: str) -> str:
+    def validate(cls, num: str) -> str:
         """Performs basic VIN validation and sanation.
 
         :param num:
@@ -88,7 +88,7 @@ class Vin(Annotatable):
 
         check_digit = 'X' if checksum == 10 else checksum
 
-        return str(check_digit) == self.vds[5]
+        return f'{check_digit}' == self.vds[5]
 
     @property
     def wmi(self) -> str:
@@ -118,9 +118,7 @@ class Vin(Annotatable):
     def brand(self) -> Brand:
         """Brand object."""
         brand = self._brand
-        if brand is None:
-            brand = UnsupportedBrand()
-        return brand
+        return UnsupportedBrand() if brand is None else brand
 
     @property
     def manufacturer(self) -> str:
@@ -130,7 +128,7 @@ class Vin(Annotatable):
     @property
     def manufacturer_is_small(self) -> bool:
         """A manufacturer who builds fewer than 1000 vehicles per year."""
-        return str(self.wmi[2]) == '9'
+        return f'{self.wmi[2]}' == '9'
 
     @property
     def vds(self) -> str:
