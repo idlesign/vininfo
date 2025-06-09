@@ -3,7 +3,7 @@
 
 ### Unreleased
 * ++ Added Assembler info.
-* ++ Countries databse update.
+* ++ Countries database update.
 
 ### v1.8.0 [2024-01-30]
 
