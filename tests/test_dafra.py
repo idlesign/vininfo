@@ -82,10 +82,10 @@ def test_dafra():
         expected = data.get('expected')
         vin = Vin(vin)
 
-        assert '%s' % vin
+        assert f'{vin}'
         assert vin.wmi == expected.get('wmi'), f'For {vin}'
         assert vin.manufacturer == expected.get('manufacturer'), f'For {vin}'
-        assert '%s' % vin.assembler == expected.get('assembler'), f'For {vin}'
+        assert f'{vin.assembler}' == expected.get('assembler'), f'For {vin}'
         assert vin.vds == expected.get('vds'), f'For {vin}'
         assert vin.vis == expected.get('vis'), f'For {vin}'
         assert vin.years_code == expected.get('years_code'), f'For {vin}'
@@ -94,7 +94,7 @@ def test_dafra():
         assert vin.region == expected.get('region'), f'For {vin}'
         assert vin.country_code == expected.get('country_code'), f'For {vin}'
         assert vin.country == expected.get('country'), f'For {vin}'
-        assert '%s' % vin.brand == expected.get('brand'), f'For {vin}'
+        assert f'{vin.brand}' == expected.get('brand'), f'For {vin}'
         assert vin.squish_vin == expected.get('squish_vin'), f'For {vin}'
 
         details = vin.details

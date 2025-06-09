@@ -56,7 +56,7 @@ class RenaultDetails(VinDetails):
     plant = Detail(('vds', 4), {
         'A': 'Portugal',
         'B': 'Batilly',
-        'С': 'Creil',
+        'C': 'Creil',
         'D': 'Douai',
         'E': 'Spain',  # ? city
         'V': 'Spain',  # ? city

@@ -1,5 +1,6 @@
 import re
-from datetime import datetime
+from datetime import datetime, timezone
+from typing import ClassVar
 
 from .common import Annotatable, Assembler, Brand, UnsupportedBrand
 from .dicts import COUNTRIES, REGIONS, WMI
@@ -12,7 +13,7 @@ if False:  # pragma: nocover
 class Vin(Annotatable):
     """Offers basic VIN data extraction facilities."""
 
-    annotate_titles = {
+    annotate_titles: ClassVar = {
         'manufacturer': 'Manufacturer',
         'region': 'Region',
         'country': 'Country',
@@ -175,7 +176,7 @@ class Vin(Annotatable):
         letters = 'ABCDEFGHJKLMNPRSTVWXY123456789'
         overflow_delta = len(letters)
         start_year_iso_table = 1980
-        net_year = datetime.now().year + 1
+        net_year = datetime.now(tz=timezone.utc).year + 1
         delta = letters.index(self.years_code)
         year = delta + start_year_iso_table
         result = [year]

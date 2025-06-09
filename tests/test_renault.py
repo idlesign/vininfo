@@ -5,7 +5,7 @@ def test_renault():
 
     vin = Vin('VF14SRAP451234567')
 
-    assert '%s' % vin
+    assert f'{vin}'
     assert vin.wmi == 'VF1'
     assert vin.manufacturer == 'Renault'
     assert vin.vds == '4SRAP4'
@@ -16,7 +16,7 @@ def test_renault():
     assert vin.region == 'Europe'
     assert vin.country_code == 'VF'
     assert vin.country == 'France'
-    assert '%s' % vin.brand == 'Renault (Renault)'
+    assert f'{vin.brand}' == 'Renault (Renault)'
 
     details = vin.details
     assert not details.engine

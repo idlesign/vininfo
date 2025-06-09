@@ -1,4 +1,4 @@
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, ClassVar
 
 from ..common import Annotatable
 
@@ -67,7 +67,7 @@ class Detail:
 class VinDetails(Annotatable):
     """Offers advanced (manufacturer specific) VIN data extraction ficilities."""
 
-    annotate_titles = {
+    annotate_titles: ClassVar = {
         'body': 'Body',
         'engine': 'Engine',
         'model': 'Model',

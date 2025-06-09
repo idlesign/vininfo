@@ -1,5 +1,5 @@
-from datetime import datetime
-from typing import TYPE_CHECKING, Any
+from datetime import datetime, timezone
+from typing import TYPE_CHECKING, Any, ClassVar
 
 if TYPE_CHECKING: # pragma: nocover
     from .details._base import VinDetails
@@ -20,7 +20,11 @@ def candidate_by_year_model_mapping(mapping: dict[str, dict[str, str]], years: l
             continue
 
         start_model_year = int(start_model_year)
-        end_model_year = int(end_model_year) if end_model_year else max(datetime.now().year, start_model_year) + 1
+        end_model_year = (
+            int(end_model_year)
+            if end_model_year else
+            max(datetime.now(tz=timezone.utc).year, start_model_year) + 1
+        )
 
         filter_years = [year for year in years if start_model_year <= year <= end_model_year]
         if filter_years:
@@ -31,7 +35,7 @@ def candidate_by_year_model_mapping(mapping: dict[str, dict[str, str]], years: l
 
 class Annotatable:
 
-    annotate_titles = {}
+    annotate_titles: ClassVar = {}
 
     def annotate(self) -> dict[str, Any]:
 
@@ -49,16 +53,16 @@ class Annotatable:
 
             annotations[label] = f'{value}'
 
-        return dict((title, value) for title, value in sorted(annotations.items(), key=lambda item: item[0]))
+        return dict(sorted(annotations.items(), key=lambda item: item[0]))
 
 
 class Assembler:
     """Assembler is a manufacturer that has a WMI and assemble vehicles for other brands using its own WMI."""
     __slots__ = ['manufacturer']
 
-    brands: set['Brand'] = None
+    brands: ClassVar[set['Brand']] = None
 
-    def __init__(self, manufacturer: str = None):
+    def __init__(self, manufacturer: str | None = None):
         self.manufacturer = manufacturer or self.title
 
     @property

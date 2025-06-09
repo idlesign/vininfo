@@ -37,35 +37,11 @@ select = [
     "UP",  # py upgrade
 ]
 
-ignore = []
+ignore = [
+    "F403",
+    "F405",
+]
 
 
 [lint.extend-per-file-ignores]
 "tests/*" = []
-
-"uwsgi_stub.py" = [
-    "FBT",  # boolean def
-    "B026",  # *args unpacking
-    "E731",  # allow lambdas
-]
-"config.py" = [
-    "F403", "F405",  # * import
-]
-"logging.py" = [
-    "F403", "F405",
-]
-"main_process.py" = [
-    "F403", "F405",
-]
-"monitoring.py" = [
-    "F403", "F405",
-]
-"networking.py" = [
-    "F403", "F405",
-]
-"routing.py" = [
-    "F403", "F405",
-]
-"subscriptions.py" = [
-    "F403", "F405",
-]
