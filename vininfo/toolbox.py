@@ -1,9 +1,8 @@
-from datetime import datetime
-from itertools import cycle
 import re
+from datetime import datetime
 from typing import Optional, List
 
-from .common import Annotatable, Brand, UnsupportedBrand
+from .common import Annotatable, Brand, UnsupportedBrand, Assembler
 from .dicts import COUNTRIES, WMI, REGIONS
 from .exceptions import ValidationError
 
@@ -24,12 +23,19 @@ class Vin(Annotatable):
     def __init__(self, num: str):
         self.num = self.validate(num)
 
-        details_extractor = self.brand.extractor
+        _details  = None
+        for brand in self.assembler.brands:
+            if isinstance(brand, str):
+                brand = Brand(brand)
+            details_extractor = brand.extractor
 
-        if details_extractor:
-            details_extractor = details_extractor(self)
+            if details_extractor:
+                _details = details_extractor(self)
+                if _details.model and _details.model.name:
+                    self._brand = brand
+                    break
 
-        self.details: VinDetails = details_extractor
+        self.details: VinDetails = _details
 
     def __str__(self):
         return self.num
@@ -90,28 +96,36 @@ class Vin(Annotatable):
         return self.num[:3]
 
     @property
-    def brand(self) -> Brand:
-        """Brand object."""
+    def assembler(self) -> Assembler:
+        """Assembler object."""
 
         wmi = self.wmi
 
-        brand = WMI.get(wmi)
+        assembler = WMI.get(wmi)
 
-        if not brand:
-            brand = WMI.get(wmi[:2])
+        if not assembler:
+            assembler = WMI.get(wmi[:2])
 
-        if isinstance(brand, str):
-            brand = Brand(brand)
+        if isinstance(assembler, str):
+            assembler = Brand(assembler)
 
+        if assembler is None:
+            assembler = UnsupportedBrand()
+
+        return assembler
+
+    @property
+    def brand(self) -> Brand:
+        """Brand object."""
+        brand = self._brand
         if brand is None:
             brand = UnsupportedBrand()
-
         return brand
 
     @property
     def manufacturer(self) -> str:
         """Manufacturer title."""
-        return self.brand.manufacturer
+        return self.assembler.manufacturer
 
     @property
     def manufacturer_is_small(self) -> bool:
@@ -154,23 +168,21 @@ class Vin(Annotatable):
         return COUNTRIES.get(self.country_code)
 
     @property
+    def years_code(self) -> str:
+        return self.vis[0]
+
+    @property
     def years(self) -> List[int]:
         letters = 'ABCDEFGHJKLMNPRSTVWXY123456789'
-        year_letter = self.vis[0]
-
-        year = 1979
-        year_current = datetime.now().year
-
-        result = []
-
-        for letter in cycle(letters):
-            year += 1
-
-            if letter == year_letter:
-                result.append(year)
-
-            if year == year_current:
-                break
+        overflow_delta = len(letters)
+        start_year_iso_table = 1980
+        net_year = datetime.now().year + 1
+        delta = letters.index(self.years_code)
+        year = delta + start_year_iso_table
+        result = [year]
+        while year + overflow_delta <= net_year:
+            year += overflow_delta
+            result.append(year)
 
         result.sort(reverse=True)
 

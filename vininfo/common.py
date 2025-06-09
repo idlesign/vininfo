@@ -1,7 +1,30 @@
-from typing import Dict, Any, Type
+from datetime import datetime
+from typing import Dict, Any, Type, Set, TYPE_CHECKING, List
 
-if False:  # pragma: nocover
+if TYPE_CHECKING: # pragma: nocover
     from .details._base import VinDetails  # noqa
+
+def constant_info(info):
+    """Emulate details logic to always return the same information."""
+    return lambda details: type("", (), {"get": (lambda code: info)})
+
+def candidate_by_year_model_mapping(mapping: Dict[str, Dict[str, str]], years: List[int]):
+    candidate_mapping = {}
+    for model_year_range, candidates in mapping.items():
+        start_model_year, end_model_year = model_year_range.split('-')
+
+        if not start_model_year and not end_model_year:
+            candidate_mapping.update(candidates)
+            continue
+
+        start_model_year = int(start_model_year)
+        end_model_year = int(end_model_year) if end_model_year else max(datetime.now().year, start_model_year) + 1
+
+        filter_years = [year for year in years if start_model_year <= year <= end_model_year]
+        if filter_years:
+            candidate_mapping.update(candidates)
+
+    return candidate_mapping
 
 
 class Annotatable:
@@ -27,11 +50,12 @@ class Annotatable:
         return dict((title, value) for title, value in sorted(annotations.items(), key=lambda item: item[0]))
 
 
-class Brand:
 
+class Assembler:
+    """Assembler is a manufacturer that has a WMI and assemble vehicles for other brands using its own WMI."""
     __slots__ = ['manufacturer']
 
-    extractor: Type['VinDetails'] = None
+    brands: Set['Brand'] = None
 
     def __init__(self, manufacturer: str = None):
         self.manufacturer = manufacturer or self.title
@@ -42,6 +66,15 @@ class Brand:
 
     def __str__(self):
         return f'{self.title} ({self.manufacturer})'
+
+
+
+class Brand(Assembler):
+    extractor: Type['VinDetails'] = None
+
+    @property
+    def brands(self) -> Set['Brand']:
+        return {self}
 
 
 class UnsupportedBrand(Brand):

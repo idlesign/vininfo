@@ -19,3 +19,5 @@ BODY_SW_8 = 'Station Wagon, 8-Door'
 
 BODY_MINIBUS = 'Minibus'
 BODY_VAN = 'Van'
+
+BODY_MOTORCYCLE = 'Motorcycle'
