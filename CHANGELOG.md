@@ -1,7 +1,7 @@
 # vininfo changelog
 
 
-### Unreleased
+### v1.9.0 [2025-06-09]
 * ++ Added Assembler info.
 * ++ Countries database update.
 
