@@ -28,6 +28,9 @@ jobs:
       run: |
         uv sync --only-group tests
         uv pip install coveralls
+    - uses: astral-sh/ruff-action@v3
+      with:
+        args: check
     - name: Run tests
       env:
         GITHUB_TOKEN: ${{ secrets.github_token }}

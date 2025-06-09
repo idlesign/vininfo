@@ -1,0 +1,71 @@
+target-version = "py310"
+line-length = 120
+
+[format]
+quote-style = "single"
+exclude = []
+
+[lint]
+select = [
+    "B",  # possible bugs
+    "BLE",  # broad exception
+    "C4",  # comprehensions
+    "DTZ",  # work with datetimes
+    "E",  # code style
+    "ERA",  # commented code
+    "EXE",  # check executables
+    "F",  # misc
+    "FA",  # future annotations
+    "FBT",  # booleans
+    "FURB",  # modernizing
+    "G",  # logging format
+    "I",  # imports
+    "ICN",  # import conventions
+    "INT",  # i18n
+    "ISC",  # stringc concat
+    "PERF",  # perfomance
+    "PIE",  # misc
+    "PLC",  # misc
+    "PLE",  # misc err
+    "PT",  # pytest
+    "PTH",  # pathlib
+    "PYI",  # typing
+    "RSE", # exc raise
+    "RUF",  # misc
+    "SLOT",  # slots related
+    "TC",  # typing
+    "UP",  # py upgrade
+]
+
+ignore = []
+
+
+[lint.extend-per-file-ignores]
+"tests/*" = []
+
+"uwsgi_stub.py" = [
+    "FBT",  # boolean def
+    "B026",  # *args unpacking
+    "E731",  # allow lambdas
+]
+"config.py" = [
+    "F403", "F405",  # * import
+]
+"logging.py" = [
+    "F403", "F405",
+]
+"main_process.py" = [
+    "F403", "F405",
+]
+"monitoring.py" = [
+    "F403", "F405",
+]
+"networking.py" = [
+    "F403", "F405",
+]
+"routing.py" = [
+    "F403", "F405",
+]
+"subscriptions.py" = [
+    "F403", "F405",
+]
