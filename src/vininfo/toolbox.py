@@ -1,9 +1,8 @@
 import re
 from datetime import datetime
-from typing import Optional, List
 
-from .common import Annotatable, Brand, UnsupportedBrand, Assembler
-from .dicts import COUNTRIES, WMI, REGIONS
+from .common import Annotatable, Assembler, Brand, UnsupportedBrand
+from .dicts import COUNTRIES, REGIONS, WMI
 from .exceptions import ValidationError
 
 if False:  # pragma: nocover
@@ -55,7 +54,7 @@ class Vin(Annotatable):
 
         pattern = r"^[A-HJ-NPR-Z0-9]{17}$"
         if not re.match(pattern, num):
-            raise ValidationError(f"VIN number must only contain alphanumeric symbols except 'I', 'O', and 'Q' ")
+            raise ValidationError("VIN number must only contain alphanumeric symbols except 'I', 'O', and 'Q' ")
 
         return num
 
@@ -147,7 +146,7 @@ class Vin(Annotatable):
         return self.wmi[0]
 
     @property
-    def region(self) -> Optional[str]:
+    def region(self) -> str | None:
         code = self.region_code
 
         title = None
@@ -164,7 +163,7 @@ class Vin(Annotatable):
         return self.wmi[0:2]
 
     @property
-    def country(self) -> Optional[str]:
+    def country(self) -> str | None:
         return COUNTRIES.get(self.country_code)
 
     @property
@@ -172,7 +171,7 @@ class Vin(Annotatable):
         return self.vis[0]
 
     @property
-    def years(self) -> List[int]:
+    def years(self) -> list[int]:
         letters = 'ABCDEFGHJKLMNPRSTVWXY123456789'
         overflow_delta = len(letters)
         start_year_iso_table = 1980

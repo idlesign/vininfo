@@ -1,6 +1,6 @@
 import pytest
 
-from vininfo import Vin, ValidationError
+from vininfo import ValidationError, Vin
 
 
 def test_validation():

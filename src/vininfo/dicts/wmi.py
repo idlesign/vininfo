@@ -1,5 +1,5 @@
 from ..assemblers import Dafra
-from ..brands import Lada, Nissan, Opel, Renault, Bajaj
+from ..brands import Bajaj, Lada, Nissan, Opel, Renault
 
 # NOTE:
 # if you want to extend this mapping with new WMIs, please use

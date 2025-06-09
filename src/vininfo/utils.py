@@ -1,7 +1,6 @@
-from typing import Tuple
 
 
-def merge_wmi(new_wmis: dict) -> Tuple[set, str]:
+def merge_wmi(new_wmis: dict) -> tuple[set, str]:
     """Helper. Used to update vininfo.dicts.wmi.WMI dictionary
     with entries from another dictionary.
 

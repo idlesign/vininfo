@@ -1,7 +1,6 @@
-from typing import Dict
 
 
-def __unpack_countries_map(counties: Dict[str, str]) -> Dict[str, str]:
+def __unpack_countries_map(counties: dict[str, str]) -> dict[str, str]:
     unpacked = {}
 
     seq = 'ABCDEFGHJKLMNPRSTUVWXYZ1234567890'

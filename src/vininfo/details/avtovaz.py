@@ -1,5 +1,5 @@
-from ._base import VinDetails, Detail
 from ..dicts.bodies import *
+from ._base import Detail, VinDetails
 
 
 class AvtoVazDetails(VinDetails):

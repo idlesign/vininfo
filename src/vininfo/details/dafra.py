@@ -1,6 +1,6 @@
-from ._base import VinDetails, Detail
 from ..common import constant_info
 from ..dicts.bodies import BODY_MOTORCYCLE
+from ._base import Detail, VinDetails
 
 
 class DafraDetails(VinDetails):

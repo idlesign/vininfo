@@ -1,6 +1,6 @@
-from ._base import VinDetails, Detail
 from ..common import candidate_by_year_model_mapping, constant_info
 from ..dicts.bodies import BODY_MOTORCYCLE
+from ._base import Detail, VinDetails
 
 
 def get_wmi(details: VinDetails):
@@ -51,11 +51,9 @@ def get_model(details: VinDetails):
         },
         'MD2': {
             **bajaj_commons_mapping,
-            **{
-                # Bajaj India
-                'B54': 'Pulsar N160',
-                'B97': 'Pulsar N250',
-            }
+            # Bajaj India
+            'B54': 'Pulsar N160',
+            'B97': 'Pulsar N250',
         }
     }
 

@@ -1,14 +1,16 @@
 from datetime import datetime
-from typing import Dict, Any, Type, Set, TYPE_CHECKING, List
+from typing import TYPE_CHECKING, Any
 
 if TYPE_CHECKING: # pragma: nocover
-    from .details._base import VinDetails  # noqa
+    from .details._base import VinDetails
+
 
 def constant_info(info):
     """Emulate details logic to always return the same information."""
     return lambda details: type("", (), {"get": (lambda code: info)})
 
-def candidate_by_year_model_mapping(mapping: Dict[str, Dict[str, str]], years: List[int]):
+
+def candidate_by_year_model_mapping(mapping: dict[str, dict[str, str]], years: list[int]):
     candidate_mapping = {}
     for model_year_range, candidates in mapping.items():
         start_model_year, end_model_year = model_year_range.split('-')
@@ -31,7 +33,7 @@ class Annotatable:
 
     annotate_titles = {}
 
-    def annotate(self) -> Dict[str, Any]:
+    def annotate(self) -> dict[str, Any]:
 
         annotations = {}
         no_attr = set()
@@ -50,12 +52,11 @@ class Annotatable:
         return dict((title, value) for title, value in sorted(annotations.items(), key=lambda item: item[0]))
 
 
-
 class Assembler:
     """Assembler is a manufacturer that has a WMI and assemble vehicles for other brands using its own WMI."""
     __slots__ = ['manufacturer']
 
-    brands: Set['Brand'] = None
+    brands: set['Brand'] = None
 
     def __init__(self, manufacturer: str = None):
         self.manufacturer = manufacturer or self.title
@@ -68,12 +69,11 @@ class Assembler:
         return f'{self.title} ({self.manufacturer})'
 
 
-
 class Brand(Assembler):
-    extractor: Type['VinDetails'] = None
+    extractor: type['VinDetails'] = None
 
     @property
-    def brands(self) -> Set['Brand']:
+    def brands(self) -> set['Brand']:
         return {self}
 
 
