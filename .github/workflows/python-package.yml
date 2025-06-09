@@ -22,12 +22,15 @@ jobs:
       uses: actions/setup-python@v5
       with:
         python-version: ${{ matrix.python-version }}
+    - name: Setup uv
+      uses: astral-sh/setup-uv@v6
     - name: Install deps
       run: |
-        python -m pip install pytest coverage coveralls
+        uv sync --only-group tests
+        uv pip install coveralls
     - name: Run tests
       env:
         GITHUB_TOKEN: ${{ secrets.github_token }}
       run: |
-        coverage run --source=vininfo setup.py test
-        coveralls --service=github
+        uv run coverage run -m pytest
+        uv run coveralls --service=github
