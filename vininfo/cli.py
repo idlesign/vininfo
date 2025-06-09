@@ -3,11 +3,11 @@ import sys
 
 import click
 
-from vininfo import VERSION_STR, Vin
+from vininfo import VERSION, Vin
 
 
 @click.group()
-@click.version_option(version=VERSION_STR)
+@click.version_option(version=VERSION)
 def entry_point():
     """vininfo command line utilities."""
 

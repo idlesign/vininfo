@@ -1,0 +1,86 @@
+[project]
+name = "vininfo"
+dynamic = ["version"]
+description = "Extracts useful information from Vehicle Identification Number (VIN)"
+authors = [
+    { name = "Igor Starikov", email = "idlesign@yandex.ru" }
+]
+readme = "README.md"
+license = "BSD-3-Clause"
+license-files = ["LICENSE"]
+requires-python = ">=3.10"
+keywords = ["vin", "vehicles"]
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/idlesign/vininfo"
+
+[project.scripts]
+vininfo = "vininfo.cli:main"
+
+[dependency-groups]
+dev = [
+    {include-group = "docs"},
+    {include-group = "linters"},
+    {include-group = "tests"},
+]
+docs = [
+]
+linters = [
+    "ruff",
+]
+tests = [
+    "pytest",
+]
+
+[project.optional-dependencies]
+cli = [
+  "click",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.version]
+path = "src/vininfo/__init__.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/vininfo"]
+
+[tool.hatch.build.targets.sdist]
+packages = ["src/"]
+
+[tool.pytest.ini_options]
+testpaths = [
+    "tests",
+]
+
+[tool.coverage.run]
+source = [
+    "src/",
+]
+omit = [
+]
+
+[tool.coverage.report]
+fail_under = 90.00
+exclude_also = [
+    "raise NotImplementedError",
+    "if TYPE_CHECKING:",
+]
+
+[tool.tox]
+skip_missing_interpreters = true
+env_list = [
+  "py310",
+  "py311",
+  "py312",
+  "py313",
+]
+
+[tool.tox.env_run_base]
+dependency_groups = ["tests"]
+commands = [
+  ["pytest", { replace = "posargs", default = ["tests"], extend = true }],
+]
