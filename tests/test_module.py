@@ -1,4 +1,3 @@
-from collections import OrderedDict
 from typing import ClassVar
 
 import pytest
@@ -58,7 +57,7 @@ def test_annotatable():
             'no_attr': 'NoAttr'
         }
     no_attr = NoAttr()
-    assert no_attr.annotate() == OrderedDict()
+    assert no_attr.annotate() == {}
 
 
 def test_unsupported_brand():
