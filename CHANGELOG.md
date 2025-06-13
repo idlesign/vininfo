@@ -1,6 +1,9 @@
 # vininfo changelog
 
 
+### Unreleased
+* ** Fix brand resolution bug introduced with Assembler support.
+
 ### v1.9.0 [2025-06-09]
 * ++ Added Assembler info.
 * ++ Countries database update.
