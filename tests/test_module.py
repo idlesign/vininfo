@@ -1,6 +1,9 @@
+from typing import ClassVar
+
 import pytest
 
 from vininfo import ValidationError, Vin
+from vininfo.common import Annotatable
 
 
 def test_validation():
@@ -48,11 +51,27 @@ def test_checksum():
     assert not non_strict.verify_checksum()
 
 
+def test_annotatable():
+    class NoAttr(Annotatable):
+        annotate_titles: ClassVar = {
+            'no_attr': 'NoAttr'
+        }
+    no_attr = NoAttr()
+    assert no_attr.annotate() == {}
+
+
 def test_unsupported_brand():
 
     vin = Vin('200BL8EV9AX604020')
     assert vin.manufacturer == 'UnsupportedBrand'
     assert vin.country is None
+
+def test_unsupported_brand_knowing_assembler():
+
+    vin = Vin('95VBL8EV9AX604020')
+    assert vin.manufacturer == 'Dafra'
+    assert vin.brand.manufacturer == 'UnsupportedBrand'
+    assert vin.country == 'Brazil'
 
 
 def test_merge_wmi():

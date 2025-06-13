@@ -21,6 +21,7 @@ class Vin(Annotatable):
     }
 
     def __init__(self, num: str):
+        self._brand = None
         self.num = self.validate(num)
 
         _details  = None
