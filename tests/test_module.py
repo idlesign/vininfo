@@ -86,3 +86,6 @@ def test_merge_wmi():
 def test_squish_vin():
      assert Vin('KF1SF08WJ8B257338').squish_vin == 'KF1SF08W8B'
      
+
+def test_year_code_unsupported():
+    assert Vin('WBY21CF090CU47924').years == []

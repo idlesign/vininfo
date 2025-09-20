@@ -1,6 +1,9 @@
 # vininfo changelog
 
 
+### Unreleased
+* ** Fixed a regression of Vin.years for unsupported year codes (closes #32).
+
 ### v1.9.1 [2025-06-13]
 * ** Fix brand resolution bug introduced with Assembler support.
 

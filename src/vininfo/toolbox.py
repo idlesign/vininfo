@@ -176,7 +176,13 @@ class Vin(Annotatable):
         overflow_delta = len(letters)
         start_year_iso_table = 1980
         net_year = datetime.now(tz=timezone.utc).year + 1
-        delta = letters.index(self.years_code)
+
+        try:
+            # E.g. .years_code == O (oh)
+            delta = letters.index(self.years_code)
+        except ValueError:
+            return []
+
         year = delta + start_year_iso_table
         result = [year]
         while year + overflow_delta <= net_year:
