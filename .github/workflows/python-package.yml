@@ -30,6 +30,7 @@ jobs:
         uv pip install coveralls
     - uses: astral-sh/ruff-action@v3
       with:
+        version: 0.13.1
         args: check
     - name: Run tests
       env:

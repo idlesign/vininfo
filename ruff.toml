@@ -44,4 +44,9 @@ ignore = [
 
 
 [lint.extend-per-file-ignores]
-"tests/*" = []
+"src/vininfo/utils.py" = [
+    "PLC0415",
+]
+"tests/test_module.py" = [
+    "PLC0415",
+]
