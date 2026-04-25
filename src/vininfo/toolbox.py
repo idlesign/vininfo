@@ -69,6 +69,9 @@ class Vin(Annotatable):
             Note that not all manufacturer abey the rule. Default: True.
 
         """
+        if not getattr(self.assembler, 'uses_sae_checkdigit', True):
+            return False
+
         if check_year and self.vis[0] in {'U', 'Z', '0'}:
             return False
 
@@ -168,7 +171,7 @@ class Vin(Annotatable):
 
     @property
     def years_code(self) -> str:
-        return self.vis[0]
+        return self.vis[getattr(self.assembler, 'year_position', 0)]
 
     @property
     def years(self) -> list[int]:

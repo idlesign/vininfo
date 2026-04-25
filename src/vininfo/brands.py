@@ -30,3 +30,14 @@ class Dafra(Brand):
 class Bajaj(Brand):
 
     extractor = BajajDetails
+
+
+class FordAustralia(Brand):
+
+    extractor = FordAustraliaDetails
+
+    # Year letter at VIN position 11 (vis index 1), not SAE position 10.
+    year_position = 1
+
+    # Position 9 is a model code, not an SAE check digit.
+    uses_sae_checkdigit = False

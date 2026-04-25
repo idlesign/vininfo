@@ -1,5 +1,5 @@
 from ..assemblers import Dafra
-from ..brands import Bajaj, Lada, Nissan, Opel, Renault
+from ..brands import Bajaj, FordAustralia, Lada, Nissan, Opel, Renault
 
 # NOTE:
 # if you want to extend this mapping with new WMIs, please use
@@ -249,7 +249,7 @@ WMI = {
     '6F': 'Ford',
     '6F4': Nissan('Nissan Motor Company'),
     '6F5': 'Kenworth',
-    '6FP': 'Ford Motor Company',
+    '6FP': FordAustralia('Ford Australia'),
     '6G': 'General Motors',
     '6G1': 'Chevrolet',
     '6G2': 'Pontiac',

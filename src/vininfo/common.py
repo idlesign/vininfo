@@ -76,6 +76,12 @@ class Assembler:
 class Brand(Assembler):
     extractor: type['VinDetails'] = None
 
+    # VIS index of the model-year letter. SAE J853 default is 0 (= VIN pos 10).
+    year_position: int = 0
+
+    # SAE J853 check digit at position 9 applies to this brand.
+    uses_sae_checkdigit: bool = True
+
     @property
     def brands(self) -> set['Brand']:
         return {self}
