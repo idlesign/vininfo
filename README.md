@@ -113,7 +113,7 @@ $ uv tool install makeapp
 $ uv tool upgrade makeapp
 ```
 
-Clone the source code the repository and switch into its directory:
+Clone the source code from the repository and switch into its directory:
 
 ```shell
 # bootstrap the utilities
