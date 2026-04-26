@@ -1,7 +1,7 @@
 # vininfo changelog
 
 
-### Unreleased
+### v1.10.0 [2026-04-26]
 * ++ Add details for Ford Australia.
 
 ### v1.9.2 [2025-09-20]

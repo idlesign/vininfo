@@ -3,5 +3,5 @@ from .toolbox import Vin
 
 __all__ = ['ValidationError', 'Vin', 'VininfoException']
 
-VERSION = '1.9.2'
+VERSION = '1.10.0'
 """Application version number."""
