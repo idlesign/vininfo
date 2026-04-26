@@ -20,6 +20,7 @@ https://github.com/idlesign/vininfo
 Additional info available for many vehicles from:
 
 * AvtoVAZ
+* Ford Australia
 * Nissan
 * Opel
 * Renault
