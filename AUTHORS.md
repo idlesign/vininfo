@@ -12,3 +12,4 @@ Created by Igor `idle sign` Starikov.
 * casual-citroen-enjoyer <https://github.com/casual-citroen-enjoyer>
 * Breno Ribeiro <https://github.com/Ribeiro-Breno>
 * Rodrigo Catto <https://github.com/iskigow>
+* sealldev <https://github.com/sealldeveloper>
