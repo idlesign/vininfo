@@ -7,6 +7,12 @@ from .opel import OpelDetails
 from .renault import RenaultDetails
 
 __all__ = [
-    'AvtoVazDetails', 'BajajDetails', 'DafraDetails', 'FordAustraliaDetails', 'NissanDetails', 'OpelDetails', 'RenaultDetails'
+    'AvtoVazDetails', 
+    'BajajDetails', 
+    'DafraDetails', 
+    'FordAustraliaDetails', 
+    'NissanDetails', 
+    'OpelDetails', 
+    'RenaultDetails'
 ]
 
