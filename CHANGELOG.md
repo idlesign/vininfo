@@ -1,6 +1,9 @@
 # vininfo changelog
 
 
+### Unreleased
+* ++ Add details for Ford Australia.
+
 ### v1.9.2 [2025-09-20]
 * ** Fixed a regression of Vin.years for unsupported year codes (closes #32).
 
