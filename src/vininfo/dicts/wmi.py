@@ -246,6 +246,7 @@ WMI = {
     '601': 'Replica/Kit Makes',
     '602': 'Toyota',
     '6AB': 'MAN',
+    '6AL': 'Windsor Caravans',
     '6F': 'Ford',
     '6F4': Nissan('Nissan Motor Company'),
     '6F5': 'Kenworth',
