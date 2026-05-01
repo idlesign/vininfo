@@ -345,7 +345,7 @@ WMI = {
     'JC1': 'Fiat Automobiles/Mazda',
     'JDA': 'Daihatsu',
     'JF': 'Fuji Heavy Industries',
-    'JF1': 'Scion',
+    'JF1': 'Subaru / Scion',
     'JF2': 'Subaru',
     'JF4': 'Saab',
     'JFS': 'Subaru',
