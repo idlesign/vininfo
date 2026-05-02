@@ -1,6 +1,10 @@
 # vininfo changelog
 
 
+### Unreleased
+* ** WMI. 'JF1' changed to Subaru / Scion.
+* ** WMI. Add Tesla WMIs.
+
 ### v1.10.0 [2026-04-26]
 * ++ Add details for Ford Australia.
 
