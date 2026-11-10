@@ -3,6 +3,7 @@ import sys
 import click
 
 from vininfo import VERSION, Vin
+from vininfo.exceptions import ValidationError
 
 
 @click.group()
@@ -11,11 +12,19 @@ def entry_point():
     """vininfo command line utilities."""
 
 
+def _validated_vin(vin):
+    """Parse a VIN or fail with a clean CLI error (no traceback)."""
+    try:
+        return Vin(vin)
+    except ValidationError as e:
+        raise click.BadParameter(str(e))
+
+
 @entry_point.command()
 @click.argument('vin')
 def show(vin):
     """Show information for VIN"""
-    num = Vin(vin)
+    num = _validated_vin(vin)
 
     click.secho('Basic:')
 
@@ -39,7 +48,7 @@ def show(vin):
 def check(vin):
     """Perform VIN checksum validation"""
 
-    if Vin(vin).verify_checksum():
+    if _validated_vin(vin).verify_checksum():
         click.secho('Checksum is valid', fg='green')
     else:
         click.secho('Checksum is not valid', fg='red', err=True)
