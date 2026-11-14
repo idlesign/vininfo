@@ -1,26 +1,29 @@
 # vininfo installation
 
-Python ``pip`` package is required to install ``vininfo``.
-
-
-## From sources
-
-Use the following command line to install ``vininfo`` from sources directory (containing `pyprogram.toml`):
-
-```bash
-    pip install .
-```
+[uv](https://docs.astral.sh/uv/) is recommended for installation, though plain `pip` works too.
 
 ## From PyPI
 
-Alternatively you can install ``vininfo`` from PyPI:
+Add the package to a project:
 
 ```bash
-    pip install vininfo
+uv add vininfo
 ```
 
-Use `-U` flag for upgrade:
+or with pip:
 
 ```bash
-    pip install -U vininfo
+pip install vininfo
 ```
+
+## From source
+
+Clone the repository and synchronize its development environment:
+
+```bash
+git clone https://github.com/idlesign/vininfo vininfo
+cd vininfo
+uv sync
+```
+
+Run commands in the project environment with `uv run`.
