@@ -1,4 +1,5 @@
 from ..dicts.bodies import *
+from ..dicts.doors import *
 from ._base import Detail, VinDetails
 
 
@@ -11,9 +12,15 @@ class AvtoVazDetails(VinDetails):
     })
 
     body = Detail(('vds', 2), {
-        'B': BODY_HATCH_5,
-        'K': BODY_SW_5,
-        'L': BODY_SEDAN_4,
+        'B': BODY_HATCH,
+        'K': BODY_SW,
+        'L': BODY_SEDAN,
+    })
+
+    doors = Detail(('vds', 2), {
+        'B': DOORS_5,
+        'K': DOORS_5,
+        'L': DOORS_4,
     })
 
     engine = Detail(('vds', 3), {

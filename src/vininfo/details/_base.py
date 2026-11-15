@@ -36,11 +36,20 @@ class DetailWrapper:
         self.code: str = code
         self.name: str | None = defs.get(code)
 
-        self._supported = bool(source) or bool(self.name)
+        if defs:
+            # A mapping is defined, but the code is unknown: no data to show.
+            self._supported = bool(self.name)
+        else:
+            self._supported = bool(source)
         """Flag indicating that this detail extraction is available."""
 
     def __str__(self):
-        return self.name or self.code
+        name = self.name
+
+        if isinstance(name, list):
+            return ', '.join(name)
+
+        return name or self.code
 
     def __bool__(self):
         return self._supported
@@ -69,19 +78,27 @@ class VinDetails(Annotatable):
 
     annotate_titles: ClassVar = {
         'body': 'Body',
+        'cab': 'Cab',
+        'doors': 'Doors',
+        'drive': 'Drive',
         'engine': 'Engine',
         'model': 'Model',
         'plant': 'Plant',
         'transmission': 'Transmission',
         'serial': 'Serial',
+        'wheelbase': 'Wheelbase',
     }
 
     def __init__(self, vin: 'Vin'):
         self._vin = vin
 
     body = Detail()
+    cab = Detail()
+    doors = Detail()
+    drive = Detail()
     engine = Detail()
     model = Detail()
     plant = Detail()
     transmission = Detail()
     serial = Detail()
+    wheelbase = Detail()

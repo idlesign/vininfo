@@ -1,0 +1,3 @@
+
+WHEELBASE_SWB = 'Short'
+WHEELBASE_LWB = 'Long'

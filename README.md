@@ -21,9 +21,12 @@ Additional info available for many vehicles from:
 
 * AvtoVAZ
 * Ford Australia
+* Ford North America
+* Mercedes-Benz
 * Nissan
 * Opel
 * Renault
+* Toyota
 
 
 ## Requirements

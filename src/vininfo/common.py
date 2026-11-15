@@ -48,6 +48,9 @@ class Annotatable:
             if value is no_attr:
                 continue
 
+            if not value:
+                continue
+
             if isinstance(value, list):
                 value = ', '.join(f'{val}' for val in value)
 

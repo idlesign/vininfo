@@ -1,0 +1,3 @@
+
+DRIVE_2WD = '2WD'
+DRIVE_4WD = '4WD'

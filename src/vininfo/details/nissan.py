@@ -1,4 +1,6 @@
 from ..dicts.bodies import *
+from ..dicts.doors import *
+from ..dicts.cabs import *
 from ._base import Detail, VinDetails
 
 
@@ -19,12 +21,27 @@ class NissanDetails(VinDetails):
     })
 
     body = Detail(('vds', 3), {
-        '1': [BODY_SEDAN_4, 'Standard Body Truck'],
-        '4': BODY_COUPE_2,
-        '5': BODY_SW_5,
-        '6': [BODY_CABRI_2, 'Fastback', 'King Cab Truck'],
-        '7': 'Crew Cab Truck',
-        '8': BODY_SW_8,
+        '1': [BODY_SEDAN, BODY_PICKUP],
+        '4': BODY_COUPE,
+        '5': BODY_SW,
+        '6': [BODY_CABRI, 'Fastback', BODY_PICKUP],
+        '7': BODY_PICKUP,
+        '8': BODY_SW,
+    })
+
+    cab = Detail(('vds', 3), {
+        '1': CAB_REGULAR,
+        '6': CAB_ACCESS,
+        '7': CAB_CREW,
+    })
+
+    doors = Detail(('vds', 3), {
+        '1': [DOORS_2, DOORS_4],
+        '4': DOORS_2,
+        '5': DOORS_5,
+        '6': DOORS_2,
+        '7': DOORS_4,
+        '8': DOORS_8,
     })
 
     engine = Detail(('vds', 0), {

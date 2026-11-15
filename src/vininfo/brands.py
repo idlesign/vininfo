@@ -41,3 +41,18 @@ class FordAustralia(Brand):
 
     # Position 9 is a model code, not an SAE check digit.
     uses_sae_checkdigit = False
+
+
+class Toyota(Brand):
+
+    extractor = ToyotaDetails
+
+
+class Ford(Brand):
+
+    extractor = FordNorthAmericaDetails
+
+
+class Mercedes(Brand):
+
+    extractor = MercedesBenzDetails

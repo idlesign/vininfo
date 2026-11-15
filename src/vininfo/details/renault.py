@@ -1,4 +1,5 @@
 from ..dicts.bodies import *
+from ..dicts.doors import *
 from ._base import Detail, VinDetails
 
 
@@ -29,28 +30,52 @@ class RenaultDetails(VinDetails):
     })
 
     body = Detail(('vds', 0), {
-        '2': BODY_SEDAN_2,
-        '3': BODY_HATCH_3,
-        '4': BODY_SEDAN_4,
-        '5': BODY_HATCH_5,
-        '6': BODY_SW_5,
-        '7': BODY_CABRI_2,
-        '8': BODY_COUPE_2,
-        'A': BODY_SW_3,
-        'B': BODY_HATCH_5,
-        'C': BODY_HATCH_3,
-        'D': BODY_COUPE_2,
-        'E': BODY_CABRI_2,
+        '2': BODY_SEDAN,
+        '3': BODY_HATCH,
+        '4': BODY_SEDAN,
+        '5': BODY_HATCH,
+        '6': BODY_SW,
+        '7': BODY_CABRI,
+        '8': BODY_COUPE,
+        'A': BODY_SW,
+        'B': BODY_HATCH,
+        'C': BODY_HATCH,
+        'D': BODY_COUPE,
+        'E': BODY_CABRI,
         'F': BODY_VAN,
-        'G': BODY_MINIVAN_3,
-        'J': BODY_MINIVAN_5,
-        'H': BODY_PICKUP_2,
-        'K': BODY_SW_3,
-        'L': BODY_SEDAN_4,
-        'M': BODY_SEDAN_2,
-        'N': BODY_MINIVAN_5,
-        'S': BODY_SW_5,
-        'U': BODY_PICKUP_2,
+        'G': BODY_MINIVAN,
+        'J': BODY_MINIVAN,
+        'H': BODY_PICKUP,
+        'K': BODY_SW,
+        'L': BODY_SEDAN,
+        'M': BODY_SEDAN,
+        'N': BODY_MINIVAN,
+        'S': BODY_SW,
+        'U': BODY_PICKUP,
+    })
+
+    doors = Detail(('vds', 0), {
+        '2': DOORS_2,
+        '3': DOORS_3,
+        '4': DOORS_4,
+        '5': DOORS_5,
+        '6': DOORS_5,
+        '7': DOORS_2,
+        '8': DOORS_2,
+        'A': DOORS_3,
+        'B': DOORS_5,
+        'C': DOORS_3,
+        'D': DOORS_2,
+        'E': DOORS_2,
+        'G': DOORS_3,
+        'J': DOORS_5,
+        'H': DOORS_2,
+        'K': DOORS_3,
+        'L': DOORS_4,
+        'M': DOORS_2,
+        'N': DOORS_5,
+        'S': DOORS_5,
+        'U': DOORS_2,
     })
 
     plant = Detail(('vds', 4), {

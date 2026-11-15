@@ -1,0 +1,205 @@
+from ..dicts.bodies import *
+from ..dicts.doors import *
+from ..dicts.cabs import *
+from ..dicts.drives import *
+from ..dicts.wheelbases import *
+from ._base import Detail, VinDetails
+
+_LIFTBACK_COUPE = 'Liftback Coupe'
+
+_PLANT_JAPAN = 'Japan'
+
+
+class ToyotaDetails(VinDetails):
+    """Toyota North America VIN details extractor (VIN format since 2010)."""
+
+    body = Detail(('vds', 0), {
+        'A': [BODY_SEDAN, BODY_HATCH, BODY_SW],
+        'B': [BODY_SEDAN, BODY_SW],
+        'C': [BODY_SEDAN, BODY_SW],
+        'D': [_LIFTBACK_COUPE, BODY_SEDAN, BODY_SW],
+        'E': BODY_SEDAN,
+        'F': BODY_CABRI,
+        'G': [BODY_SEDAN, BODY_SW],
+        'H': [BODY_COUPE, BODY_SW],
+        'J': BODY_LIFTBACK,
+        'K': [BODY_LIFTBACK, BODY_SEDAN],
+        'L': BODY_SEDAN,
+        'M': BODY_SEDAN,
+        'N': BODY_PICKUP,
+        'P': BODY_PICKUP,
+        'R': BODY_SEDAN,
+        'S': BODY_COUPE,
+        'T': BODY_PICKUP,
+        'U': BODY_SW,
+        'V': BODY_SW,
+        'W': BODY_SW,
+        'X': BODY_SW,
+        'Y': BODY_SW,
+        'Z': BODY_SW,
+        '1': BODY_SW,
+        '6': BODY_SW,
+        '7': BODY_SW,
+    })
+
+    doors = Detail(('vds', 0), {
+        'A': [DOORS_4, DOORS_5],
+        'B': [DOORS_4, DOORS_5],
+        'C': DOORS_4,
+        'D': [DOORS_3, DOORS_4, DOORS_5],
+        'E': DOORS_4,
+        'F': DOORS_2,
+        'G': [DOORS_4, DOORS_5],
+        'H': [DOORS_2, DOORS_4],
+        'J': DOORS_3,
+        'K': DOORS_5,
+        'L': DOORS_5,
+        'M': DOORS_5,
+        'N': DOORS_2,
+        'P': DOORS_2,
+        'R': DOORS_4,
+        'S': DOORS_2,
+        'T': DOORS_2,
+        'U': DOORS_5,
+        'V': DOORS_5,
+        'W': DOORS_5,
+        'X': DOORS_5,
+        'Y': DOORS_5,
+        'Z': DOORS_5,
+        '1': DOORS_5,
+        '6': DOORS_5,
+        '7': DOORS_5,
+    })
+
+    cab = Detail(('vds', 0), {
+        'N': CAB_REGULAR,
+        'P': CAB_REGULAR,
+        'T': CAB_ACCESS,
+    })
+
+    wheelbase = Detail(('vds', 0), {
+        'G': WHEELBASE_LWB,
+        'N': WHEELBASE_SWB,
+        'P': WHEELBASE_SWB,
+        'T': WHEELBASE_LWB,
+    })
+
+    drive = Detail(('vds', 0), {
+        'B': [DRIVE_2WD, DRIVE_4WD],
+        'C': DRIVE_4WD,
+        'D': [DRIVE_2WD, DRIVE_4WD],
+        'F': DRIVE_2WD,
+        'G': DRIVE_2WD,
+        'H': [DRIVE_2WD, DRIVE_4WD],
+        'J': DRIVE_2WD,
+        'K': DRIVE_2WD,
+        'L': DRIVE_4WD,
+        'M': DRIVE_2WD,
+        'N': DRIVE_2WD,
+        'P': DRIVE_4WD,
+        'S': DRIVE_4WD,
+        'T': DRIVE_2WD,
+        'U': DRIVE_4WD,
+        'W': DRIVE_2WD,
+        'Y': DRIVE_2WD,
+        'Z': DRIVE_2WD,
+    })
+
+    engine = Detail(('vds', 1), {
+        'A': ['1AR-FE', '2ZR-FAE', '2ZR-FXE', '8AR-FTS', 'A25A-FXS', 'M20A-FKS', 'T24A-FTS', 'V35A-FTS'],
+        'B': ['2AZ-FXE', '2GR-FXE', '2ZR-FXE', 'A25A-FKS', 'A25A-FXS', 'G16E-GTS', 'M20A-FXS', 'T24A-FTS', 'V35A-FTS'],
+        'C': ['2GR-FSE', '2GR-FXE', '2GR-FXS', '2ZR-FXE', 'A25A-FXS', 'M20A-FXS', 'T24A-FTS', 'V35A-FTS'],
+        'D': ['1NZ-FXE', '2AR-FXE', '2ZR-FXE', 'A25A-FKS', 'A25A-FXS', 'G16E-GTS', 'M20A-FXS', 'T24A-FTS', 'V35A-FTS'],
+        'E': ['2AZ-FE', '2GR-FSE', 'A25A-FXS', 'T24A-FTS'],
+        'F': ['2AR-FE', '2GR-FXS', '4GR-FSE', 'T24A-FTS'],
+        'G': ['2GR-FXS', 'A25A-FXS', 'T24A-FTS'],
+        'H': ['3ZR-FAE', 'T24A-FTS'],
+        'J': ['1NR-FE', '2AR-FXE', 'A25A-FXS'],
+        'K': ['2GR-FE', 'A25A-FXS'],
+        'L': '1UR-FSE',
+        'M': ['1UR-FE', '2GR-FSE'],
+        'N': ['2ZR-FXE', '3UZ-FE'],
+        'P': ['2UR-GSE', '2ZR-FAE'],
+        'R': 'A25A-FXS',
+        'S': ['2GR-FXE', 'A25A-FXS'],
+        'T': '1NZ-FE',
+        'U': ['1GR-FE', '2UR-FSE', '2ZR-FE'],
+        'W': ['2AR-FXE', '3MZ-FE', '3UR-FBE', 'A25A-FXS'],
+        'X': ['1LR-GUE', '2TR-FE'],
+        'Y': ['3UR-FE', '8GR-FXS'],
+        'Z': '2GR-FKS',
+        '1': 'A25A-FKS',
+        '2': 'A25A-FXS',
+        '3': ['A25A-FXS', 'M20A-FKS'],
+        '4': 'M20A-FKS',
+        '5': 'V35A-FTS',
+        '6': ['A25A-FKS', 'A25A-FXS', 'M20A-FXS'],
+        '8': '2GR-FKS',
+        '9': ['2ZR-FXE', 'M20A-FXS'],
+    })
+
+    model = Detail(('vds', 4), {
+        'A': ['Lexus HS250h', 'Lexus RX', 'Toyota Mirai', 'Toyota bZ4X', 'Toyota Sequoia', 'Toyota Tundra'],
+        'B': ['Toyota Avalon', 'Toyota bZ', 'Toyota Venza', 'Lexus RZ', 'Toyota Tundra'],
+        'C': ['Toyota Sienna', 'Lexus RC', 'Toyota Tundra'],
+        'D': ['Toyota Mirai', 'Toyota C-HR EV', 'Toyota Tundra'],
+        'E': ['Toyota Corolla', 'Scion iM', 'Toyota Matrix', 'Scion xB'],
+        'F': ['Toyota FJ Cruiser', 'Lexus LS', 'Toyota Crown'],
+        'G': ['Lexus ES', 'Toyota Corolla Cross'],
+        'H': ['Toyota Highlander', 'Lexus CT200h', 'Lexus LFA', 'Lexus UX', 'Toyota Venza'],
+        'J': ['Toyota Land Cruiser', 'Toyota Crown Signia'],
+        'K': 'Toyota Camry',
+        'L': 'Lexus GS',
+        'N': 'Toyota Tacoma',
+        'P': ['Toyota Prius Plug-in Hybrid', 'Toyota Prius Prime'],
+        'R': 'Toyota 4Runner',
+        'S': 'Lexus GS',
+        'U': ['Toyota Prius', 'Toyota Prius V'],
+        'V': 'Toyota RAV4',
+        'X': ['Lexus GX', 'Lexus LX', 'Toyota C-HR'],
+        'Y': ['Lexus SC430', 'Lexus LC'],
+        'Z': 'Lexus NX',
+        '0': ['Scion iQ', 'Scion iQ EV'],
+        '1': ['Toyota Tundra', 'Toyota Sequoia', 'Lexus ES'],
+        '2': 'Lexus IS',
+        '3': ['Toyota Yaris', 'Toyota Prius C'],
+        '4': 'Scion xD',
+        '5': 'Toyota Grand Highlander',
+        '6': 'Lexus TX',
+        '7': 'Scion tC',
+    })
+
+    plant = Detail(('vis', 1), {
+        'A': ['Motomachi, Japan', 'Onnaing-Valenciennes, France'],
+        'C': 'Cambridge, ON, Canada',
+        'D': 'Nagakusa, Obu, Japan',
+        'E': 'Burnaston, United Kingdom',
+        'G': 'Gliwice, Poland',
+        'J': ['Takaoka, Japan', 'Vigo, Spain'],
+        'K': 'Hamura, Tokyo, Japan',
+        'L': 'Miyagi, Japan',
+        'M': ['Tijuana, Mexico', 'Atessa, Italy'],
+        'N': 'Kolín, Czech Republic',
+        'P': 'Blue Springs, MS, US',
+        'R': ['Lafayette, IN, US', 'Adapazari, Turkey'],
+        'S': 'Princeton, IN, US',
+        'T': 'Guanajuato, Mexico',
+        'U': 'Georgetown, KY, US',
+        'V': 'Huntsville, AL, US',
+        'W': ['Woodstock, ON, Canada', 'Graz, Austria'],
+        'X': ['San Antonio, TX, US', 'Altona, Australia'],
+        'Y': ['Salamanca, Mexico', 'Yajima, Gunma, Japan'],
+        'Z': ['Fremont, CA, US', 'Lieu-Saint-Amand, France'],
+        '0': _PLANT_JAPAN,
+        '1': _PLANT_JAPAN,
+        '2': _PLANT_JAPAN,
+        '3': _PLANT_JAPAN,
+        '4': _PLANT_JAPAN,
+        '5': _PLANT_JAPAN,
+        '6': _PLANT_JAPAN,
+        '7': [_PLANT_JAPAN, 'Lordstown, OH, US'],
+        '8': _PLANT_JAPAN,
+        '9': _PLANT_JAPAN,
+    })
+
+    serial = Detail(('vis', slice(2, None)))
