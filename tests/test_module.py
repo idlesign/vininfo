@@ -77,10 +77,12 @@ def test_unsupported_brand_knowing_assembler():
 def test_merge_wmi():
     from vininfo.utils import merge_wmi
 
-    missing, lines = merge_wmi({'1DTEST': 'Some', '1GTEST': 'Other'})
-    assert missing == {'1DTEST', '1GTEST'}
-    assert "    '1D': 'Dodge',\n    '1DTEST': 'Some'," in lines
-    assert "    '1GT': 'GMC Truck',\n    '1GTEST': 'Other'," in lines
+    missing, lines = merge_wmi({'1DTEST': 'Some', '1ETEST': "Other's", '1GTEST': 'Other'})
+    assert missing == {'1DTEST', '1ETEST', '1GTEST'}
+    assert "    '1DTEST': 'Some'," in lines
+    assert "    '1ETEST': 'Other\\'s'," in lines
+    assert "    '1GTEST': 'Other'," in lines
+    assert lines.index("'1DTEST'") < lines.index("'1GTEST'")
 
 
 def test_squish_vin():

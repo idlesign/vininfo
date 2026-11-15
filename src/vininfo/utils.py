@@ -36,7 +36,8 @@ def merge_wmi(new_wmis: dict) -> tuple[set, str]:
     wmi_missing = set(new_wmis.keys()).difference(wmi_src_dict.keys())
 
     for key in wmi_missing:
-        wmi_src_dict[key] = f"'{new_wmis[key]}'"
+        value = new_wmis[key].replace('\\', '\\\\').replace("'", "\\'")
+        wmi_src_dict[key] = f"'{value}'"
 
     wmi_dst = ['WMI = {']
 
