@@ -1,6 +1,12 @@
 # vininfo changelog
 
 
+### v2.0.0 [2026-11-15]
+* ! Details. `body` attribute no longer carries doors, drive, cab and wheelbase - those are separate attributes now.
+* ++ Details. Add extractors for Toyota, Ford North America and Mercedes-Benz.
+* ++ WMI. Expand database from Wikibooks data, unify naming, drop entries duplicating 2-char prefixes.
+* ** merge_wmi(). Fix quoting for names with apostrophes.
+
 ### v1.11.0 [2026-05-02]
 * ++WMI. Add Tesla WMIs.
 * ** WMI. 'JF1' changed to Subaru / Scion.
