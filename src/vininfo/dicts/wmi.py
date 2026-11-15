@@ -1714,7 +1714,7 @@ WMI = {
     'X6D': 'VIS-AVTO Russia',
     'X7L': Renault(),
     'X7M': 'Hyundai & Vortex Russia',
-    'X89': 'ВМЗ bus',
+    'X89': 'VMZ bus',
     'X8J': 'IMZ-Ural',
     'X8U': 'Scania Russia',
     'X96': 'Mercedes-Benz',

@@ -1,6 +1,6 @@
 from ..dicts.bodies import *
-from ..dicts.doors import *
 from ..dicts.cabs import *
+from ..dicts.doors import *
 from ..dicts.drives import *
 from ..dicts.wheelbases import *
 from ._base import Detail, VinDetails
